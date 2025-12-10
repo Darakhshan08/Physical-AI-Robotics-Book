@@ -1,0 +1,36 @@
+{
+  "id": "intro/environment-setup",
+  "title": "Environment Setup",
+  "description": "Ubuntu 22.04 LTS installation, ROS 2 Humble installation, Gazebo Harmonic setup, NVIDIA Isaac Sim (Omniverse) installation, Python venv and dependencies, VS Code configuration, Verification commands.",
+  "source": "@site/docs/intro/environment-setup.mdx",
+  "sourceDirName": "intro",
+  "slug": "/intro/environment-setup",
+  "permalink": "/docs/intro/environment-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/intro/environment-setup.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "environment-setup",
+    "title": "Environment Setup",
+    "sidebar_label": "Environment Setup",
+    "sidebar_position": 4,
+    "description": "Ubuntu 22.04 LTS installation, ROS 2 Humble installation, Gazebo Harmonic setup, NVIDIA Isaac Sim (Omniverse) installation, Python venv and dependencies, VS Code configuration, Verification commands.",
+    "keywords": [
+      "environment-setup",
+      "ubuntu",
+      "ros2",
+      "gazebo",
+      "isaac-sim",
+      "python",
+      "vscode"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Course Overview",
+    "permalink": "/docs/intro/course-overview"
+  }
+}

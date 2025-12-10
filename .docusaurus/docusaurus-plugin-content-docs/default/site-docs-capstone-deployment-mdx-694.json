@@ -1,0 +1,39 @@
+{
+  "id": "capstone/capstone-deployment",
+  "title": "Deployment and Demo",
+  "description": "Sim-to-real checklist, Jetson deployment, Real robot config, Demo preparation, Recording and documentation, Future improvements.",
+  "source": "@site/docs/capstone/deployment.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/capstone-deployment",
+  "permalink": "/docs/capstone/capstone-deployment",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/capstone/deployment.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "id": "capstone-deployment",
+    "title": "Deployment and Demo",
+    "sidebar_label": "Deployment & Demo",
+    "sidebar_position": 7,
+    "description": "Sim-to-real checklist, Jetson deployment, Real robot config, Demo preparation, Recording and documentation, Future improvements.",
+    "keywords": [
+      "capstone",
+      "deployment",
+      "demo",
+      "sim-to-real",
+      "jetson",
+      "robotics"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Integration & Testing",
+    "permalink": "/docs/capstone/capstone-integration"
+  },
+  "next": {
+    "title": "Appendices",
+    "permalink": "/docs/category/appendices"
+  }
+}

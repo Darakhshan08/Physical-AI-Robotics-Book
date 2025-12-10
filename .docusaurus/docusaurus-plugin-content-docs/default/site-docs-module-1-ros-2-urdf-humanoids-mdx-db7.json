@@ -1,0 +1,39 @@
+{
+  "id": "module-1-ros2/urdf-humanoids",
+  "title": "Understanding URDF for Humanoids",
+  "description": "URDF (Unified Robot Description Format), XML structure, Visual, collision, inertial properties, Joint types, Building simple humanoid URDF, Visualizing in RViz2.",
+  "source": "@site/docs/module-1-ros2/urdf-humanoids.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/urdf-humanoids",
+  "permalink": "/docs/module-1-ros2/urdf-humanoids",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-1-ros2/urdf-humanoids.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "urdf-humanoids",
+    "title": "Understanding URDF for Humanoids",
+    "sidebar_label": "URDF for Humanoids",
+    "sidebar_position": 4,
+    "description": "URDF (Unified Robot Description Format), XML structure, Visual, collision, inertial properties, Joint types, Building simple humanoid URDF, Visualizing in RViz2.",
+    "keywords": [
+      "urdf",
+      "xml",
+      "links",
+      "joints",
+      "humanoid",
+      "rviz2"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Python Packages",
+    "permalink": "/docs/module-1-ros2/python-packages"
+  },
+  "next": {
+    "title": "Launch Files & Parameters",
+    "permalink": "/docs/module-1-ros2/launch-files"
+  }
+}

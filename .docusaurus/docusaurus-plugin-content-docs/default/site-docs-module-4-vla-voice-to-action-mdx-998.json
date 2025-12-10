@@ -1,0 +1,38 @@
+{
+  "id": "module-4-vla/voice-to-action",
+  "title": "Voice-to-Action with OpenAI Whisper",
+  "description": "Speech recognition overview, Whisper model variants, Local Whisper deployment, Real-time audio streaming, Command parsing, Error handling.",
+  "source": "@site/docs/module-4-vla/voice-to-action.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/voice-to-action",
+  "permalink": "/docs/module-4-vla/voice-to-action",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/voice-to-action.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "voice-to-action",
+    "title": "Voice-to-Action with OpenAI Whisper",
+    "sidebar_label": "Voice-to-Action",
+    "sidebar_position": 4,
+    "description": "Speech recognition overview, Whisper model variants, Local Whisper deployment, Real-time audio streaming, Command parsing, Error handling.",
+    "keywords": [
+      "voice-to-action",
+      "openai-whisper",
+      "speech-recognition",
+      "ros2",
+      "command-parsing"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Manipulation & Grasping",
+    "permalink": "/docs/module-4-vla/manipulation"
+  },
+  "next": {
+    "title": "Multi-modal Interaction",
+    "permalink": "/docs/module-4-vla/multimodal"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "module-3-isaac/sim-to-real",
+  "title": "Sim-to-Real Transfer Techniques",
+  "description": "Reality gap problem, Domain randomization strategies, System identification, Progressive training, Deploying to Jetson, Testing and validation.",
+  "source": "@site/docs/module-3-isaac/sim-to-real.mdx",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/sim-to-real",
+  "permalink": "/docs/module-3-isaac/sim-to-real",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-3-isaac/sim-to-real.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "id": "sim-to-real",
+    "title": "Sim-to-Real Transfer Techniques",
+    "sidebar_label": "Sim-to-Real Transfer",
+    "sidebar_position": 6,
+    "description": "Reality gap problem, Domain randomization strategies, System identification, Progressive training, Deploying to Jetson, Testing and validation.",
+    "keywords": [
+      "sim-to-real",
+      "reality-gap",
+      "domain-randomization",
+      "system-identification",
+      "jetson",
+      "robotics"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "RL for Robot Control",
+    "permalink": "/docs/module-3-isaac/reinforcement-learning"
+  },
+  "next": {
+    "title": "Part 4: Vision-Language-Action - VLA",
+    "permalink": "/docs/category/part-4-vision-language-action---vla"
+  }
+}

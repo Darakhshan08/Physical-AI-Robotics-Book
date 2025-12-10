@@ -1,0 +1,38 @@
+{
+  "id": "module-4-vla/multimodal",
+  "title": "Multi-modal Interaction (Speech, Gesture, Vision)",
+  "description": "Multi-modal fusion strategies, Gesture recognition with MediaPipe, Combining voice + gesture, Visual attention, Context-aware responses.",
+  "source": "@site/docs/module-4-vla/multimodal.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/multimodal",
+  "permalink": "/docs/module-4-vla/multimodal",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/multimodal.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "id": "multimodal",
+    "title": "Multi-modal Interaction (Speech, Gesture, Vision)",
+    "sidebar_label": "Multi-modal Interaction",
+    "sidebar_position": 6,
+    "description": "Multi-modal fusion strategies, Gesture recognition with MediaPipe, Combining voice + gesture, Visual attention, Context-aware responses.",
+    "keywords": [
+      "multi-modal",
+      "gesture-recognition",
+      "mediapipe",
+      "visual-attention",
+      "hri"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Voice-to-Action",
+    "permalink": "/docs/module-4-vla/voice-to-action"
+  },
+  "next": {
+    "title": "Conversational AI",
+    "permalink": "/docs/module-4-vla/conversational-ai"
+  }
+}

@@ -1,6 +1,6 @@
 # Ignore build output
 # build/
-.docusaurus/
+# .docusaurus/
 
 # Ignore development files
 node_modules/

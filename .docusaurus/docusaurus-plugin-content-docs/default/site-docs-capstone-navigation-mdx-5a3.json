@@ -1,0 +1,39 @@
+{
+  "id": "capstone/capstone-navigation",
+  "title": "Path Planning and Navigation",
+  "description": "Environment mapping, Goal pose from commands, Nav2 integration, Obstacle avoidance, Recovery behaviors, Navigation monitoring.",
+  "source": "@site/docs/capstone/navigation.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/capstone-navigation",
+  "permalink": "/docs/capstone/capstone-navigation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/capstone/navigation.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "capstone-navigation",
+    "title": "Path Planning and Navigation",
+    "sidebar_label": "Navigation",
+    "sidebar_position": 4,
+    "description": "Environment mapping, Goal pose from commands, Nav2 integration, Obstacle avoidance, Recovery behaviors, Navigation monitoring.",
+    "keywords": [
+      "capstone",
+      "navigation",
+      "nav2",
+      "mapping",
+      "path-planning",
+      "obstacle-avoidance"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Voice Pipeline",
+    "permalink": "/docs/capstone/voice-pipeline"
+  },
+  "next": {
+    "title": "Manipulation",
+    "permalink": "/docs/capstone/capstone-manipulation"
+  }
+}

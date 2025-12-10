@@ -1,0 +1,39 @@
+{
+  "id": "module-3-isaac/nav2",
+  "title": "Nav2: Path Planning for Bipedal Movement",
+  "description": "Nav2 stack overview, Costmaps for navigation, Path planners (NavFn, Smac), Behavior trees, Adapting for bipedal robots, Dynamic obstacle avoidance.",
+  "source": "@site/docs/module-3-isaac/nav2.mdx",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/nav2",
+  "permalink": "/docs/module-3-isaac/nav2",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-3-isaac/nav2.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "nav2",
+    "title": "Nav2: Path Planning for Bipedal Movement",
+    "sidebar_label": "Nav2",
+    "sidebar_position": 4,
+    "description": "Nav2 stack overview, Costmaps for navigation, Path planners (NavFn, Smac), Behavior trees, Adapting for bipedal robots, Dynamic obstacle avoidance.",
+    "keywords": [
+      "nav2",
+      "ros2",
+      "navigation",
+      "bipedal",
+      "path-planning",
+      "behavior-trees"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Isaac ROS VSLAM",
+    "permalink": "/docs/module-3-isaac/vslam"
+  },
+  "next": {
+    "title": "RL for Robot Control",
+    "permalink": "/docs/module-3-isaac/reinforcement-learning"
+  }
+}

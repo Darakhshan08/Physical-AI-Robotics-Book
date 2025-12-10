@@ -1,0 +1,38 @@
+{
+  "id": "capstone/voice-pipeline",
+  "title": "Voice Command Processing Pipeline",
+  "description": "Microphone input, Whisper integration, Command classification, Intent extraction, ROS 2 action triggering, User feedback.",
+  "source": "@site/docs/capstone/voice-pipeline.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/voice-pipeline",
+  "permalink": "/docs/capstone/voice-pipeline",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/capstone/voice-pipeline.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "voice-pipeline",
+    "title": "Voice Command Processing Pipeline",
+    "sidebar_label": "Voice Pipeline",
+    "sidebar_position": 3,
+    "description": "Microphone input, Whisper integration, Command classification, Intent extraction, ROS 2 action triggering, User feedback.",
+    "keywords": [
+      "voice-command",
+      "whisper",
+      "ros2",
+      "intent-extraction",
+      "nlp"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Architecture Design",
+    "permalink": "/docs/capstone/capstone-architecture"
+  },
+  "next": {
+    "title": "Navigation",
+    "permalink": "/docs/capstone/capstone-navigation"
+  }
+}

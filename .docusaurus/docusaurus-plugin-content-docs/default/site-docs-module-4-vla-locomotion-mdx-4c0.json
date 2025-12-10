@@ -1,0 +1,39 @@
+{
+  "id": "module-4-vla/locomotion",
+  "title": "Bipedal Locomotion and Balance Control",
+  "description": "Zero Moment Point (ZMP), Center of Mass (CoM) control, Gait generation, Walking pattern generators, Balance recovery, Terrain adaptation.",
+  "source": "@site/docs/module-4-vla/locomotion.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/locomotion",
+  "permalink": "/docs/module-4-vla/locomotion",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/locomotion.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "locomotion",
+    "title": "Bipedal Locomotion and Balance Control",
+    "sidebar_label": "Bipedal Locomotion",
+    "sidebar_position": 2,
+    "description": "Zero Moment Point (ZMP), Center of Mass (CoM) control, Gait generation, Walking pattern generators, Balance recovery, Terrain adaptation.",
+    "keywords": [
+      "bipedal",
+      "locomotion",
+      "zmp",
+      "com",
+      "balance-control",
+      "gait"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Kinematics & Dynamics",
+    "permalink": "/docs/module-4-vla/kinematics"
+  },
+  "next": {
+    "title": "Manipulation & Grasping",
+    "permalink": "/docs/module-4-vla/manipulation"
+  }
+}

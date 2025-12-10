@@ -1,0 +1,40 @@
+{
+  "id": "module-2-simulation/sensor-simulation",
+  "title": "Sensor Simulation (LiDAR, Depth Cameras, IMUs)",
+  "description": "Sensor plugins in Gazebo, LiDAR setup and configuration, Depth camera (RealSense) simulation, IMU implementation, Publishing to ROS 2 topics, Noise models.",
+  "source": "@site/docs/module-2-simulation/sensor-simulation.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/sensor-simulation",
+  "permalink": "/docs/module-2-simulation/sensor-simulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-2-simulation/sensor-simulation.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "sensor-simulation",
+    "title": "Sensor Simulation (LiDAR, Depth Cameras, IMUs)",
+    "sidebar_label": "Sensor Simulation",
+    "sidebar_position": 4,
+    "description": "Sensor plugins in Gazebo, LiDAR setup and configuration, Depth camera (RealSense) simulation, IMU implementation, Publishing to ROS 2 topics, Noise models.",
+    "keywords": [
+      "gazebo",
+      "sensors",
+      "lidar",
+      "depth-camera",
+      "imu",
+      "ros2",
+      "noise-models"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Physics Simulation",
+    "permalink": "/docs/module-2-simulation/physics-simulation"
+  },
+  "next": {
+    "title": "HRI in Simulation",
+    "permalink": "/docs/module-2-simulation/hri-simulation"
+  }
+}

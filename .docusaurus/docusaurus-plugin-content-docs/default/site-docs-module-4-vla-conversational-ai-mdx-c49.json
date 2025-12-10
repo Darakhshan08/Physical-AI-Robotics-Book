@@ -1,0 +1,38 @@
+{
+  "id": "module-4-vla/conversational-ai",
+  "title": "Integrating GPT Models for Conversational Robotics",
+  "description": "Conversational AI for robots, GPT-4 API integration, Conversation state management, Contextual memory, Natural responses, Safety filters.",
+  "source": "@site/docs/module-4-vla/conversational-ai.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/conversational-ai",
+  "permalink": "/docs/module-4-vla/conversational-ai",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/conversational-ai.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "id": "conversational-ai",
+    "title": "Integrating GPT Models for Conversational Robotics",
+    "sidebar_label": "Conversational AI",
+    "sidebar_position": 7,
+    "description": "Conversational AI for robots, GPT-4 API integration, Conversation state management, Contextual memory, Natural responses, Safety filters.",
+    "keywords": [
+      "gpt",
+      "llms",
+      "conversational-ai",
+      "robotics",
+      "openai"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Multi-modal Interaction",
+    "permalink": "/docs/module-4-vla/multimodal"
+  },
+  "next": {
+    "title": "Cognitive Planning with LLMs",
+    "permalink": "/docs/module-4-vla/cognitive-planning"
+  }
+}

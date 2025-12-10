@@ -1,0 +1,717 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "2237": [
+      2237
+    ],
+    "17105386": [
+      4866
+    ],
+    "17896441": [
+      1869,
+      8401
+    ],
+    "69409159": [
+      9532
+    ],
+    "main": [
+      1869,
+      5354,
+      8792
+    ],
+    "runtime~main": [
+      1869,
+      8792,
+      5354
+    ],
+    "035c87b2": [
+      9175
+    ],
+    "043980c2": [
+      1432
+    ],
+    "0c4d1822": [
+      1511
+    ],
+    "0dcb701d": [
+      1762
+    ],
+    "109e8eda": [
+      8570
+    ],
+    "14eb3368": [
+      1869,
+      6969
+    ],
+    "1e33f4fc": [
+      2092
+    ],
+    "2adf4a22": [
+      9443
+    ],
+    "2de4f7b6": [
+      8791
+    ],
+    "2fbd9482": [
+      9996
+    ],
+    "33da6b90": [
+      6735
+    ],
+    "3d2459e7": [
+      6254
+    ],
+    "4c0c9e56": [
+      6472
+    ],
+    "53bbb5ae": [
+      7346
+    ],
+    "54175c03": [
+      9239
+    ],
+    "5a3fb785": [
+      7474
+    ],
+    "5d0971dd": [
+      6921
+    ],
+    "5e95c892": [
+      9647
+    ],
+    "6e75b19d": [
+      5284
+    ],
+    "6efa5cab": [
+      9738
+    ],
+    "74f49495": [
+      9349
+    ],
+    "772fc79f": [
+      4758
+    ],
+    "8323a835": [
+      4262
+    ],
+    "88d6536f": [
+      5029
+    ],
+    "8aae58f8": [
+      5541
+    ],
+    "8d0251f9": [
+      3020
+    ],
+    "96b93c9b": [
+      9542
+    ],
+    "998ea858": [
+      2844
+    ],
+    "a7bd4aaa": [
+      7098
+    ],
+    "a94703ab": [
+      1869,
+      9048
+    ],
+    "aba21aa0": [
+      5742
+    ],
+    "ac8f755e": [
+      8447
+    ],
+    "aca332b2": [
+      3540
+    ],
+    "ad2b4381": [
+      8530
+    ],
+    "aea5eccd": [
+      8606
+    ],
+    "b1e21d23": [
+      9663
+    ],
+    "b4a0be4e": [
+      9108
+    ],
+    "b9a9ec93": [
+      6994
+    ],
+    "bfcd38f8": [
+      8017
+    ],
+    "c04242b8": [
+      6060
+    ],
+    "c165dcc4": [
+      5926
+    ],
+    "c493cbea": [
+      6943
+    ],
+    "c51505ee": [
+      7518
+    ],
+    "cf5eff2d": [
+      7592
+    ],
+    "d1e0cd6c": [
+      7229
+    ],
+    "d3a09f54": [
+      1817
+    ],
+    "daa3c341": [
+      2789
+    ],
+    "db7f002e": [
+      2857
+    ],
+    "e7d545e8": [
+      3736
+    ],
+    "eadcd0f4": [
+      2852
+    ],
+    "fe487b15": [
+      7641
+    ],
+    "styles": [
+      5354,
+      6969,
+      8401,
+      8792,
+      9048,
+      1869
+    ]
+  },
+  "assets": {
+    "1432": {
+      "js": [
+        {
+          "file": "assets/js/043980c2.c5fcf9d0.js",
+          "hash": "e68fa064caa0a9c9",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/043980c2.c5fcf9d0.js"
+        }
+      ]
+    },
+    "1511": {
+      "js": [
+        {
+          "file": "assets/js/0c4d1822.b4baf058.js",
+          "hash": "d0d74d135035868d",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/0c4d1822.b4baf058.js"
+        }
+      ]
+    },
+    "1762": {
+      "js": [
+        {
+          "file": "assets/js/0dcb701d.7c398f2d.js",
+          "hash": "f72312d454046f11",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/0dcb701d.7c398f2d.js"
+        }
+      ]
+    },
+    "1817": {
+      "js": [
+        {
+          "file": "assets/js/d3a09f54.bc48d63c.js",
+          "hash": "22ebced58ba0d484",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/d3a09f54.bc48d63c.js"
+        }
+      ]
+    },
+    "1869": {
+      "css": [
+        {
+          "file": "assets/css/styles.43713d77.css",
+          "hash": "f30a30cd7169e8fd",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/css/styles.43713d77.css"
+        }
+      ]
+    },
+    "2092": {
+      "js": [
+        {
+          "file": "assets/js/1e33f4fc.9ecde2e1.js",
+          "hash": "1b94c528c46e2d35",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/1e33f4fc.9ecde2e1.js"
+        }
+      ]
+    },
+    "2237": {
+      "js": [
+        {
+          "file": "assets/js/2237.3d662c53.js",
+          "hash": "7e3dd15609c319e1",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/2237.3d662c53.js"
+        }
+      ]
+    },
+    "2789": {
+      "js": [
+        {
+          "file": "assets/js/daa3c341.9147b7ce.js",
+          "hash": "f99a0ae434a9e33c",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/daa3c341.9147b7ce.js"
+        }
+      ]
+    },
+    "2844": {
+      "js": [
+        {
+          "file": "assets/js/998ea858.aede0313.js",
+          "hash": "c46b9c8f10a99d69",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/998ea858.aede0313.js"
+        }
+      ]
+    },
+    "2852": {
+      "js": [
+        {
+          "file": "assets/js/eadcd0f4.723662d7.js",
+          "hash": "b356ebcf58ab2040",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/eadcd0f4.723662d7.js"
+        }
+      ]
+    },
+    "2857": {
+      "js": [
+        {
+          "file": "assets/js/db7f002e.786cbceb.js",
+          "hash": "ca700c39ce60cd25",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/db7f002e.786cbceb.js"
+        }
+      ]
+    },
+    "3020": {
+      "js": [
+        {
+          "file": "assets/js/8d0251f9.1ebcd205.js",
+          "hash": "7ad5d003bb36e4b7",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/8d0251f9.1ebcd205.js"
+        }
+      ]
+    },
+    "3540": {
+      "js": [
+        {
+          "file": "assets/js/aca332b2.ab250e18.js",
+          "hash": "3710754d7c69403a",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/aca332b2.ab250e18.js"
+        }
+      ]
+    },
+    "3736": {
+      "js": [
+        {
+          "file": "assets/js/e7d545e8.326c130e.js",
+          "hash": "552757ae1c0c761d",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/e7d545e8.326c130e.js"
+        }
+      ]
+    },
+    "4262": {
+      "js": [
+        {
+          "file": "assets/js/8323a835.6abfc85d.js",
+          "hash": "07258d85ceeb1c4c",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/8323a835.6abfc85d.js"
+        }
+      ]
+    },
+    "4758": {
+      "js": [
+        {
+          "file": "assets/js/772fc79f.7a2d776d.js",
+          "hash": "d06ac176da564817",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/772fc79f.7a2d776d.js"
+        }
+      ]
+    },
+    "4866": {
+      "js": [
+        {
+          "file": "assets/js/17105386.faf8ddc2.js",
+          "hash": "2d0b3dbe53837a12",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/17105386.faf8ddc2.js"
+        }
+      ]
+    },
+    "5029": {
+      "js": [
+        {
+          "file": "assets/js/88d6536f.19d90959.js",
+          "hash": "d46c7b07c1ccc908",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/88d6536f.19d90959.js"
+        }
+      ]
+    },
+    "5284": {
+      "js": [
+        {
+          "file": "assets/js/6e75b19d.f940f03f.js",
+          "hash": "d56ad706e0a2cbc4",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/6e75b19d.f940f03f.js"
+        }
+      ]
+    },
+    "5354": {
+      "js": [
+        {
+          "file": "assets/js/runtime~main.ce3c27b6.js",
+          "hash": "094b60c72e2ec0a0",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/runtime~main.ce3c27b6.js"
+        }
+      ]
+    },
+    "5541": {
+      "js": [
+        {
+          "file": "assets/js/8aae58f8.820ef4cd.js",
+          "hash": "b32e187e9f382fa0",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/8aae58f8.820ef4cd.js"
+        }
+      ]
+    },
+    "5742": {
+      "js": [
+        {
+          "file": "assets/js/aba21aa0.94d9c5f4.js",
+          "hash": "e2bc7a60cd3885b8",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/aba21aa0.94d9c5f4.js"
+        }
+      ]
+    },
+    "5926": {
+      "js": [
+        {
+          "file": "assets/js/c165dcc4.2445ca3c.js",
+          "hash": "2f764d5d406a484a",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/c165dcc4.2445ca3c.js"
+        }
+      ]
+    },
+    "6060": {
+      "js": [
+        {
+          "file": "assets/js/c04242b8.5e35f4ff.js",
+          "hash": "fec54aa1e6da443f",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/c04242b8.5e35f4ff.js"
+        }
+      ]
+    },
+    "6254": {
+      "js": [
+        {
+          "file": "assets/js/3d2459e7.109ce624.js",
+          "hash": "f559aaef7376b0ab",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/3d2459e7.109ce624.js"
+        }
+      ]
+    },
+    "6472": {
+      "js": [
+        {
+          "file": "assets/js/4c0c9e56.fc9097b8.js",
+          "hash": "905894a693319563",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/4c0c9e56.fc9097b8.js"
+        }
+      ]
+    },
+    "6735": {
+      "js": [
+        {
+          "file": "assets/js/33da6b90.ed6d6bae.js",
+          "hash": "dec4497d327b0745",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/33da6b90.ed6d6bae.js"
+        }
+      ]
+    },
+    "6921": {
+      "js": [
+        {
+          "file": "assets/js/5d0971dd.fc1678f3.js",
+          "hash": "3b871e5edf170440",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/5d0971dd.fc1678f3.js"
+        }
+      ]
+    },
+    "6943": {
+      "js": [
+        {
+          "file": "assets/js/c493cbea.2b95f8eb.js",
+          "hash": "fb321a48b3011598",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/c493cbea.2b95f8eb.js"
+        }
+      ]
+    },
+    "6969": {
+      "js": [
+        {
+          "file": "assets/js/14eb3368.acda40a0.js",
+          "hash": "4fde00f2ce03a8a0",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/14eb3368.acda40a0.js"
+        }
+      ]
+    },
+    "6994": {
+      "js": [
+        {
+          "file": "assets/js/b9a9ec93.cf15f89b.js",
+          "hash": "8f83fad3db7b18af",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/b9a9ec93.cf15f89b.js"
+        }
+      ]
+    },
+    "7098": {
+      "js": [
+        {
+          "file": "assets/js/a7bd4aaa.f6752ff6.js",
+          "hash": "74261ba5742d49cd",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/a7bd4aaa.f6752ff6.js"
+        }
+      ]
+    },
+    "7229": {
+      "js": [
+        {
+          "file": "assets/js/d1e0cd6c.52a9c81b.js",
+          "hash": "6f0799da115b3156",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/d1e0cd6c.52a9c81b.js"
+        }
+      ]
+    },
+    "7346": {
+      "js": [
+        {
+          "file": "assets/js/53bbb5ae.0c7ee6d0.js",
+          "hash": "df3d606f23899dcf",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/53bbb5ae.0c7ee6d0.js"
+        }
+      ]
+    },
+    "7474": {
+      "js": [
+        {
+          "file": "assets/js/5a3fb785.68f8c3f1.js",
+          "hash": "2bae4917daac0c40",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/5a3fb785.68f8c3f1.js"
+        }
+      ]
+    },
+    "7518": {
+      "js": [
+        {
+          "file": "assets/js/c51505ee.e795aa3f.js",
+          "hash": "896254cf903f6668",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/c51505ee.e795aa3f.js"
+        }
+      ]
+    },
+    "7592": {
+      "js": [
+        {
+          "file": "assets/js/cf5eff2d.9ce929e4.js",
+          "hash": "de3c460fa69ce9e2",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/cf5eff2d.9ce929e4.js"
+        }
+      ]
+    },
+    "7641": {
+      "js": [
+        {
+          "file": "assets/js/fe487b15.7073fa99.js",
+          "hash": "03e6c91f6a3a9de7",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/fe487b15.7073fa99.js"
+        }
+      ]
+    },
+    "8017": {
+      "js": [
+        {
+          "file": "assets/js/bfcd38f8.e23b2192.js",
+          "hash": "2e01a019c0d9bf6f",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/bfcd38f8.e23b2192.js"
+        }
+      ]
+    },
+    "8401": {
+      "js": [
+        {
+          "file": "assets/js/17896441.8531df39.js",
+          "hash": "fc4fd62b1dc578aa",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/17896441.8531df39.js"
+        }
+      ]
+    },
+    "8447": {
+      "js": [
+        {
+          "file": "assets/js/ac8f755e.78b214d1.js",
+          "hash": "b0313498e49474d7",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/ac8f755e.78b214d1.js"
+        }
+      ]
+    },
+    "8530": {
+      "js": [
+        {
+          "file": "assets/js/ad2b4381.b3c88c7a.js",
+          "hash": "b23c1a480dfc5cc4",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/ad2b4381.b3c88c7a.js"
+        }
+      ]
+    },
+    "8570": {
+      "js": [
+        {
+          "file": "assets/js/109e8eda.96fb4dc3.js",
+          "hash": "8a04c050be452163",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/109e8eda.96fb4dc3.js"
+        }
+      ]
+    },
+    "8606": {
+      "js": [
+        {
+          "file": "assets/js/aea5eccd.f8128053.js",
+          "hash": "74588c9d8e786245",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/aea5eccd.f8128053.js"
+        }
+      ]
+    },
+    "8791": {
+      "js": [
+        {
+          "file": "assets/js/2de4f7b6.2a4b313b.js",
+          "hash": "40fdf56a72caaa3c",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/2de4f7b6.2a4b313b.js"
+        }
+      ]
+    },
+    "8792": {
+      "js": [
+        {
+          "file": "assets/js/main.7556e6b1.js",
+          "hash": "6be0741b8427f8a3",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/main.7556e6b1.js"
+        }
+      ]
+    },
+    "9048": {
+      "js": [
+        {
+          "file": "assets/js/a94703ab.aa53f6f0.js",
+          "hash": "9b720d4a557924d3",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/a94703ab.aa53f6f0.js"
+        }
+      ]
+    },
+    "9108": {
+      "js": [
+        {
+          "file": "assets/js/b4a0be4e.dffdc22e.js",
+          "hash": "e83ab341573ac6ad",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/b4a0be4e.dffdc22e.js"
+        }
+      ]
+    },
+    "9175": {
+      "js": [
+        {
+          "file": "assets/js/035c87b2.8f3286cb.js",
+          "hash": "1d8de756377672ff",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/035c87b2.8f3286cb.js"
+        }
+      ]
+    },
+    "9239": {
+      "js": [
+        {
+          "file": "assets/js/54175c03.e8081575.js",
+          "hash": "037002786b7ee8a9",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/54175c03.e8081575.js"
+        }
+      ]
+    },
+    "9349": {
+      "js": [
+        {
+          "file": "assets/js/74f49495.43ea87eb.js",
+          "hash": "7aff2a9ae720f025",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/74f49495.43ea87eb.js"
+        }
+      ]
+    },
+    "9443": {
+      "js": [
+        {
+          "file": "assets/js/2adf4a22.839adc5b.js",
+          "hash": "881921277eb7ea60",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/2adf4a22.839adc5b.js"
+        }
+      ]
+    },
+    "9532": {
+      "js": [
+        {
+          "file": "assets/js/69409159.3717766d.js",
+          "hash": "1c850d0b6d478334",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/69409159.3717766d.js"
+        }
+      ]
+    },
+    "9542": {
+      "js": [
+        {
+          "file": "assets/js/96b93c9b.682bf342.js",
+          "hash": "108f446449e7c360",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/96b93c9b.682bf342.js"
+        }
+      ]
+    },
+    "9647": {
+      "js": [
+        {
+          "file": "assets/js/5e95c892.90220227.js",
+          "hash": "22aa772024202894",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/5e95c892.90220227.js"
+        }
+      ]
+    },
+    "9663": {
+      "js": [
+        {
+          "file": "assets/js/b1e21d23.f2e38fca.js",
+          "hash": "4f096a80b6fee17c",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/b1e21d23.f2e38fca.js"
+        }
+      ]
+    },
+    "9738": {
+      "js": [
+        {
+          "file": "assets/js/6efa5cab.e8e3a648.js",
+          "hash": "4830bafa0d95a049",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/6efa5cab.e8e3a648.js"
+        }
+      ]
+    },
+    "9996": {
+      "js": [
+        {
+          "file": "assets/js/2fbd9482.8a376f44.js",
+          "hash": "aa4b5408632a17e1",
+          "publicPath": "/Physical-AI-Humanoid-Robotics-Textbook/assets/js/2fbd9482.8a376f44.js"
+        }
+      ]
+    }
+  }
+}

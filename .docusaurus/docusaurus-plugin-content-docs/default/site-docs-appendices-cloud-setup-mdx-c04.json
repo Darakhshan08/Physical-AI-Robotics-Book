@@ -1,0 +1,38 @@
+{
+  "id": "appendices/cloud-setup",
+  "title": "Cloud Lab Setup",
+  "description": "AWS RoboMaker setup, NVIDIA Omniverse Cloud, Cost optimization, Remote development workflow.",
+  "source": "@site/docs/appendices/cloud-setup.mdx",
+  "sourceDirName": "appendices",
+  "slug": "/appendices/cloud-setup",
+  "permalink": "/docs/appendices/cloud-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/appendices/cloud-setup.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "cloud-setup",
+    "title": "Cloud Lab Setup",
+    "sidebar_label": "Cloud Lab Setup",
+    "sidebar_position": 2,
+    "description": "AWS RoboMaker setup, NVIDIA Omniverse Cloud, Cost optimization, Remote development workflow.",
+    "keywords": [
+      "cloud",
+      "aws",
+      "robomaker",
+      "omniverse-cloud",
+      "remote-development"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Hardware Setup",
+    "permalink": "/docs/appendices/hardware-setup"
+  },
+  "next": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/appendices/troubleshooting"
+  }
+}

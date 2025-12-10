@@ -1,0 +1,40 @@
+{
+  "id": "module-1-ros2/architecture",
+  "title": "ROS 2 Architecture & Core Concepts",
+  "description": "ROS 1 vs ROS 2 differences, DDS explained, Workspace structure, Packages, nodes, executables, colcon build system.",
+  "source": "@site/docs/module-1-ros2/architecture.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/architecture",
+  "permalink": "/docs/module-1-ros2/architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-1-ros2/architecture.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "architecture",
+    "title": "ROS 2 Architecture & Core Concepts",
+    "sidebar_label": "ROS 2 Architecture",
+    "sidebar_position": 1,
+    "description": "ROS 1 vs ROS 2 differences, DDS explained, Workspace structure, Packages, nodes, executables, colcon build system.",
+    "keywords": [
+      "ros2",
+      "architecture",
+      "dds",
+      "workspace",
+      "packages",
+      "nodes",
+      "colcon"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Part 1: The Robotic Nervous System - ROS 2",
+    "permalink": "/docs/category/part-1-the-robotic-nervous-system---ros-2"
+  },
+  "next": {
+    "title": "Nodes, Topics, Services",
+    "permalink": "/docs/module-1-ros2/nodes-topics-services"
+  }
+}

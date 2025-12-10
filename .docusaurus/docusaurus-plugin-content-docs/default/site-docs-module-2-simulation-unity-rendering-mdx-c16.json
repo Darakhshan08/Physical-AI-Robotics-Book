@@ -1,0 +1,24 @@
+{
+  "id": "module-2-simulation/unity-rendering",
+  "title": "High-Fidelity Rendering in Unity",
+  "description": "While Gazebo is an excellent general-purpose simulator, Unity offers superior visual fidelity and advanced rendering capabilities, making it ideal for simulating environments where appearance matters, such as for human-robot interaction or computer vision tasks that benefit from photorealistic scenes. Unity's rich game development ecosystem can be leveraged for advanced robotic simulations.",
+  "source": "@site/docs/module-2-simulation/unity-rendering.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/unity-rendering",
+  "permalink": "/docs/module-2-simulation/unity-rendering",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-2-simulation/unity-rendering.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "HRI in Simulation",
+    "permalink": "/docs/module-2-simulation/hri-simulation"
+  },
+  "next": {
+    "title": "Part 3: The AI-Robot Brain - NVIDIA Isaac",
+    "permalink": "/docs/category/part-3-the-ai-robot-brain---nvidia-isaac"
+  }
+}

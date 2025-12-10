@@ -1,0 +1,39 @@
+{
+  "id": "module-1-ros2/launch-files",
+  "title": "Launch Files and Parameter Management",
+  "description": "Python launch file syntax, Launching multiple nodes, Parameters (declaration and usage), YAML parameter files, Remapping topics, Conditional launching.",
+  "source": "@site/docs/module-1-ros2/launch-files.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/launch-files",
+  "permalink": "/docs/module-1-ros2/launch-files",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-1-ros2/launch-files.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "id": "launch-files",
+    "title": "Launch Files and Parameter Management",
+    "sidebar_label": "Launch Files & Parameters",
+    "sidebar_position": 5,
+    "description": "Python launch file syntax, Launching multiple nodes, Parameters (declaration and usage), YAML parameter files, Remapping topics, Conditional launching.",
+    "keywords": [
+      "ros2",
+      "launch-files",
+      "python",
+      "parameters",
+      "yaml",
+      "remapping"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "URDF for Humanoids",
+    "permalink": "/docs/module-1-ros2/urdf-humanoids"
+  },
+  "next": {
+    "title": "Bridging Agents",
+    "permalink": "/docs/module-1-ros2/bridging-agents"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "capstone/capstone-integration",
+  "title": "Integration and Testing",
+  "description": "System integration steps, Unit testing nodes, Integration testing, Simulation checklist, Performance profiling, Bug tracking.",
+  "source": "@site/docs/capstone/integration.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/capstone-integration",
+  "permalink": "/docs/capstone/capstone-integration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/capstone/integration.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "id": "capstone-integration",
+    "title": "Integration and Testing",
+    "sidebar_label": "Integration & Testing",
+    "sidebar_position": 6,
+    "description": "System integration steps, Unit testing nodes, Integration testing, Simulation checklist, Performance profiling, Bug tracking.",
+    "keywords": [
+      "capstone",
+      "integration",
+      "testing",
+      "unit-tests",
+      "ros2",
+      "simulation"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Manipulation",
+    "permalink": "/docs/capstone/capstone-manipulation"
+  },
+  "next": {
+    "title": "Deployment & Demo",
+    "permalink": "/docs/capstone/capstone-deployment"
+  }
+}

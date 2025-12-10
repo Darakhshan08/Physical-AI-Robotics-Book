@@ -1,0 +1,39 @@
+{
+  "id": "appendices/resources",
+  "title": "Additional Resources",
+  "description": "Official documentation links, Recommended courses, Research papers, Community resources, GitHub repositories.",
+  "source": "@site/docs/appendices/resources.mdx",
+  "sourceDirName": "appendices",
+  "slug": "/appendices/resources",
+  "permalink": "/docs/appendices/resources",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/appendices/resources.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "id": "resources",
+    "title": "Additional Resources",
+    "sidebar_label": "Resources",
+    "sidebar_position": 5,
+    "description": "Official documentation links, Recommended courses, Research papers, Community resources, GitHub repositories.",
+    "keywords": [
+      "resources",
+      "ros2",
+      "gazebo",
+      "isaac-sim",
+      "openai",
+      "robotics"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Glossary",
+    "permalink": "/docs/appendices/glossary"
+  },
+  "next": {
+    "title": "What is Physical AI?",
+    "permalink": "/docs/intro/what-is-physical-ai"
+  }
+}

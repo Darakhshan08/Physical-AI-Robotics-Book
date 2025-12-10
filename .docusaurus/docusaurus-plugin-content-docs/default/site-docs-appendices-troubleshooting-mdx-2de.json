@@ -1,0 +1,39 @@
+{
+  "id": "appendices/troubleshooting",
+  "title": "Troubleshooting Common Issues",
+  "description": "ROS 2 errors and fixes, Gazebo crashes, Isaac Sim GPU issues, Network problems, Build failures.",
+  "source": "@site/docs/appendices/troubleshooting.mdx",
+  "sourceDirName": "appendices",
+  "slug": "/appendices/troubleshooting",
+  "permalink": "/docs/appendices/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/appendices/troubleshooting.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "troubleshooting",
+    "title": "Troubleshooting Common Issues",
+    "sidebar_label": "Troubleshooting",
+    "sidebar_position": 3,
+    "description": "ROS 2 errors and fixes, Gazebo crashes, Isaac Sim GPU issues, Network problems, Build failures.",
+    "keywords": [
+      "troubleshooting",
+      "ros2",
+      "gazebo",
+      "isaac-sim",
+      "network",
+      "build"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Cloud Lab Setup",
+    "permalink": "/docs/appendices/cloud-setup"
+  },
+  "next": {
+    "title": "Glossary",
+    "permalink": "/docs/appendices/glossary"
+  }
+}

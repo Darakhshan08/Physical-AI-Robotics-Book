@@ -1,0 +1,38 @@
+{
+  "id": "capstone/capstone-manipulation",
+  "title": "Object Detection and Manipulation",
+  "description": "Object detection model, Target localization, Approach planning, Grasp execution, Manipulation feedback, Error recovery.",
+  "source": "@site/docs/capstone/manipulation.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/capstone-manipulation",
+  "permalink": "/docs/capstone/capstone-manipulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/capstone/manipulation.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "id": "capstone-manipulation",
+    "title": "Object Detection and Manipulation",
+    "sidebar_label": "Manipulation",
+    "sidebar_position": 5,
+    "description": "Object detection model, Target localization, Approach planning, Grasp execution, Manipulation feedback, Error recovery.",
+    "keywords": [
+      "capstone",
+      "object-detection",
+      "manipulation",
+      "grasping",
+      "ros2"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Navigation",
+    "permalink": "/docs/capstone/capstone-navigation"
+  },
+  "next": {
+    "title": "Integration & Testing",
+    "permalink": "/docs/capstone/capstone-integration"
+  }
+}

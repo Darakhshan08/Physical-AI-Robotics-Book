@@ -1,0 +1,36 @@
+{
+  "id": "appendices/glossary",
+  "title": "Glossary of Terms",
+  "description": "100+ robotics and AI terms, Alphabetical listing.",
+  "source": "@site/docs/appendices/glossary.mdx",
+  "sourceDirName": "appendices",
+  "slug": "/appendices/glossary",
+  "permalink": "/docs/appendices/glossary",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/appendices/glossary.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "glossary",
+    "title": "Glossary of Terms",
+    "sidebar_label": "Glossary",
+    "sidebar_position": 4,
+    "description": "100+ robotics and AI terms, Alphabetical listing.",
+    "keywords": [
+      "glossary",
+      "robotics-terms",
+      "ai-terms"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Troubleshooting",
+    "permalink": "/docs/appendices/troubleshooting"
+  },
+  "next": {
+    "title": "Resources",
+    "permalink": "/docs/appendices/resources"
+  }
+}

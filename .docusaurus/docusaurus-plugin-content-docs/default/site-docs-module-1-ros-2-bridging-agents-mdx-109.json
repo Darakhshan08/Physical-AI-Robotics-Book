@@ -1,0 +1,39 @@
+{
+  "id": "module-1-ros2/bridging-agents",
+  "title": "Bridging Python Agents to ROS Controllers",
+  "description": "AI Agent architecture, Connecting LLM outputs to ROS 2 actions, Action clients in Python, Message serialization, Real-time considerations, Error handling.",
+  "source": "@site/docs/module-1-ros2/bridging-agents.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/bridging-agents",
+  "permalink": "/docs/module-1-ros2/bridging-agents",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-1-ros2/bridging-agents.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "id": "bridging-agents",
+    "title": "Bridging Python Agents to ROS Controllers",
+    "sidebar_label": "Bridging Agents",
+    "sidebar_position": 6,
+    "description": "AI Agent architecture, Connecting LLM outputs to ROS 2 actions, Action clients in Python, Message serialization, Real-time considerations, Error handling.",
+    "keywords": [
+      "ros2",
+      "python",
+      "agent",
+      "llm",
+      "action-client",
+      "message-serialization"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Launch Files & Parameters",
+    "permalink": "/docs/module-1-ros2/launch-files"
+  },
+  "next": {
+    "title": "Part 2: The Digital Twin - Gazebo & Unity",
+    "permalink": "/docs/category/part-2-the-digital-twin---gazebo--unity"
+  }
+}

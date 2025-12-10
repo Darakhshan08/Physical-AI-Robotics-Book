@@ -1,0 +1,246 @@
+{
+  "/__docusaurus/debug-5ff": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/config-5ba": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/content-a2b": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    },
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
+  },
+  "/__docusaurus/debug/globalData-c3c": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/metadata-156": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/registry-88c": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/routes-000": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/docs-4f4": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---docsaba-d7c"
+    }
+  },
+  "/docs-2c7": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---docs-005-788"
+  },
+  "/docs-518": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/docs/appendices/cloud-setup-043": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-appendices-cloud-setupc-04-6ac"
+  },
+  "/docs/appendices/glossary-6d0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-appendices-glossary-96-b-a76"
+  },
+  "/docs/appendices/hardware-setup-039": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-appendices-hardware-setupdaa-c98"
+  },
+  "/docs/appendices/resources-74a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-appendices-resourcese-7-d-697"
+  },
+  "/docs/appendices/troubleshooting-f31": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-appendices-troubleshooting-2-de-28b"
+  },
+  "/docs/capstone/capstone-architecture-bf0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-capstone-architecturefe-4-64c"
+  },
+  "/docs/capstone/capstone-deployment-bdb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-capstone-deployment-694-f5c"
+  },
+  "/docs/capstone/capstone-integration-154": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-capstone-integrationead-a34"
+  },
+  "/docs/capstone/capstone-manipulation-bb8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-capstone-manipulation-53-b-b65"
+  },
+  "/docs/capstone/capstone-navigation-c90": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-capstone-navigation-5-a-3-02c"
+  },
+  "/docs/capstone/capstone-overview-820": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-capstone-overview-6-ef-d97"
+  },
+  "/docs/capstone/voice-pipeline-0c9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-capstone-voice-pipelineb-4-a-ede"
+  },
+  "/docs/category/appendices-00f": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---docs-category-appendicescc-3-58d"
+  },
+  "/docs/category/part-1-the-robotic-nervous-system---ros-2-675": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---docs-category-part-1-the-robotic-nervous-system-ros-2-bee-08e"
+  },
+  "/docs/category/part-2-the-digital-twin---gazebo--unity-9aa": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---docs-category-part-2-the-digital-twin-gazebo-unityacb-0bd"
+  },
+  "/docs/category/part-3-the-ai-robot-brain---nvidia-isaac-a60": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---docs-category-part-3-the-ai-robot-brain-nvidia-isaac-0-c-3-33d"
+  },
+  "/docs/category/part-4-vision-language-action---vla-a35": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---docs-category-part-4-vision-language-action-vla-933-cbb"
+  },
+  "/docs/category/part-5-capstone-project-1bb": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---docs-category-part-5-capstone-project-35-e-af7"
+  },
+  "/docs/intro/course-overview-5be": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-course-overviewcf-5-3ef"
+  },
+  "/docs/intro/environment-setup-656": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-environment-setupc-51-f4e"
+  },
+  "/docs/intro/what-is-physical-ai-adc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-what-is-physical-ai-0-c-4-8db"
+  },
+  "/docs/intro/why-humanoid-robots-cf9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-why-humanoid-robots-541-ffc"
+  },
+  "/docs/module-1-ros2/architecture-288": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-1-ros-2-architecture-2-fb-95c"
+  },
+  "/docs/module-1-ros2/bridging-agents-aaa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-1-ros-2-bridging-agents-109-d93"
+  },
+  "/docs/module-1-ros2/launch-files-c0a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-1-ros-2-launch-filesb-1-e-f7f"
+  },
+  "/docs/module-1-ros2/nodes-topics-services-761": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-1-ros-2-nodes-topics-services-772-865"
+  },
+  "/docs/module-1-ros2/python-packages-67a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-1-ros-2-python-packagesac-8-c3c"
+  },
+  "/docs/module-1-ros2/urdf-humanoids-965": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-1-ros-2-urdf-humanoidsdb-7-1b6"
+  },
+  "/docs/module-2-simulation/gazebo-setup-dde": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-2-simulation-gazebo-setup-035-f16"
+  },
+  "/docs/module-2-simulation/hri-simulation-ce3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-2-simulation-hri-simulation-2-ad-eff"
+  },
+  "/docs/module-2-simulation/physics-simulation-fae": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-2-simulation-physics-simulationb-9-a-c34"
+  },
+  "/docs/module-2-simulation/sensor-simulation-8df": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-2-simulation-sensor-simulation-74-f-1a3"
+  },
+  "/docs/module-2-simulation/unity-rendering-db9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-2-simulation-unity-renderingc-16-d32"
+  },
+  "/docs/module-2-simulation/urdf-sdf-e2e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-2-simulation-urdf-sdf-8-d-0-dd7"
+  },
+  "/docs/module-3-isaac/isaac-overview-860": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-3-isaac-isaac-overview-8-aa-2b8"
+  },
+  "/docs/module-3-isaac/nav2-d2c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-3-isaac-nav-288-d-c1e"
+  },
+  "/docs/module-3-isaac/reinforcement-learning-5f3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-3-isaac-reinforcement-learning-043-44d"
+  },
+  "/docs/module-3-isaac/sim-to-real-7d4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-3-isaac-sim-to-real-1-e-3-697"
+  },
+  "/docs/module-3-isaac/synthetic-data-df1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-3-isaac-synthetic-datad-3-a-b36"
+  },
+  "/docs/module-3-isaac/vslam-556": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-3-isaac-vslam-33-d-22b"
+  },
+  "/docs/module-4-vla/cognitive-planning-009": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-cognitive-planningbfc-3a4"
+  },
+  "/docs/module-4-vla/conversational-ai-609": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-conversational-aic-49-0cc"
+  },
+  "/docs/module-4-vla/kinematics-c90": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-kinematics-171-1c3"
+  },
+  "/docs/module-4-vla/locomotion-e71": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-locomotion-4-c-0-0db"
+  },
+  "/docs/module-4-vla/manipulation-b92": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-manipulationaea-387"
+  },
+  "/docs/module-4-vla/multimodal-662": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-multimodalad-2-b03"
+  },
+  "/docs/module-4-vla/voice-to-action-7aa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-module-4-vla-voice-to-action-998-18f"
+  }
+}

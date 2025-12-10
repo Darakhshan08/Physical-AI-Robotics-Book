@@ -1,0 +1,38 @@
+{
+  "id": "module-4-vla/manipulation",
+  "title": "Manipulation and Grasping with Humanoid Hands",
+  "description": "Humanoid hand design, Grasp types and taxonomy, Grasp planning algorithms, Force control, Object manipulation, Tool use.",
+  "source": "@site/docs/module-4-vla/manipulation.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/manipulation",
+  "permalink": "/docs/module-4-vla/manipulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/manipulation.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "manipulation",
+    "title": "Manipulation and Grasping with Humanoid Hands",
+    "sidebar_label": "Manipulation & Grasping",
+    "sidebar_position": 3,
+    "description": "Humanoid hand design, Grasp types and taxonomy, Grasp planning algorithms, Force control, Object manipulation, Tool use.",
+    "keywords": [
+      "manipulation",
+      "grasping",
+      "humanoid-hands",
+      "force-control",
+      "robotics"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Bipedal Locomotion",
+    "permalink": "/docs/module-4-vla/locomotion"
+  },
+  "next": {
+    "title": "Voice-to-Action",
+    "permalink": "/docs/module-4-vla/voice-to-action"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "module-1-ros2/python-packages",
+  "title": "Building ROS 2 Packages with Python (rclpy)",
+  "description": "Python package structure, setup.py and package.xml, Entry points and console scripts, Dependencies management, Building and running.",
+  "source": "@site/docs/module-1-ros2/python-packages.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/python-packages",
+  "permalink": "/docs/module-1-ros2/python-packages",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-1-ros2/python-packages.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "python-packages",
+    "title": "Building ROS 2 Packages with Python (rclpy)",
+    "sidebar_label": "Python Packages",
+    "sidebar_position": 3,
+    "description": "Python package structure, setup.py and package.xml, Entry points and console scripts, Dependencies management, Building and running.",
+    "keywords": [
+      "ros2",
+      "python",
+      "rclpy",
+      "package",
+      "setup.py",
+      "package.xml",
+      "colcon"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Nodes, Topics, Services",
+    "permalink": "/docs/module-1-ros2/nodes-topics-services"
+  },
+  "next": {
+    "title": "URDF for Humanoids",
+    "permalink": "/docs/module-1-ros2/urdf-humanoids"
+  }
+}

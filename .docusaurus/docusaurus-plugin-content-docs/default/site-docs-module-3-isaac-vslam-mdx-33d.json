@@ -1,0 +1,39 @@
+{
+  "id": "module-3-isaac/vslam",
+  "title": "Isaac ROS: Hardware-Accelerated VSLAM",
+  "description": "VSLAM (Visual SLAM) explained, Isaac ROS packages, cuVSLAM (GPU-accelerated), Stereo camera input, Real-time localization, Performance benchmarks.",
+  "source": "@site/docs/module-3-isaac/vslam.mdx",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/vslam",
+  "permalink": "/docs/module-3-isaac/vslam",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-3-isaac/vslam.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "vslam",
+    "title": "Isaac ROS: Hardware-Accelerated VSLAM",
+    "sidebar_label": "Isaac ROS VSLAM",
+    "sidebar_position": 3,
+    "description": "VSLAM (Visual SLAM) explained, Isaac ROS packages, cuVSLAM (GPU-accelerated), Stereo camera input, Real-time localization, Performance benchmarks.",
+    "keywords": [
+      "isaac-ros",
+      "vslam",
+      "slam",
+      "nvidia-gpu",
+      "real-time",
+      "localization"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Synthetic Data",
+    "permalink": "/docs/module-3-isaac/synthetic-data"
+  },
+  "next": {
+    "title": "Nav2",
+    "permalink": "/docs/module-3-isaac/nav2"
+  }
+}

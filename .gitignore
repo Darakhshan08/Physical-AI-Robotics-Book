@@ -9,7 +9,7 @@ lerna-debug.log*
 .pnp.js
 
 # Docusaurus
-.docusaurus/
+# .docusaurus/
 # build/
 
 # Python

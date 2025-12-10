@@ -1,0 +1,40 @@
+{
+  "id": "module-1-ros2/nodes-topics-services",
+  "title": "Nodes, Topics, and Services",
+  "description": "Nodes as building blocks, Pub/Sub pattern with Topics, Messages (std_msgs, geometry_msgs), Request/Response with Services, Actions for long-running tasks, QoS settings.",
+  "source": "@site/docs/module-1-ros2/nodes-topics-services.mdx",
+  "sourceDirName": "module-1-ros2",
+  "slug": "/module-1-ros2/nodes-topics-services",
+  "permalink": "/docs/module-1-ros2/nodes-topics-services",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-1-ros2/nodes-topics-services.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "nodes-topics-services",
+    "title": "Nodes, Topics, and Services",
+    "sidebar_label": "Nodes, Topics, Services",
+    "sidebar_position": 2,
+    "description": "Nodes as building blocks, Pub/Sub pattern with Topics, Messages (std_msgs, geometry_msgs), Request/Response with Services, Actions for long-running tasks, QoS settings.",
+    "keywords": [
+      "ros2",
+      "nodes",
+      "topics",
+      "services",
+      "actions",
+      "qos",
+      "pubsub"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "ROS 2 Architecture",
+    "permalink": "/docs/module-1-ros2/architecture"
+  },
+  "next": {
+    "title": "Python Packages",
+    "permalink": "/docs/module-1-ros2/python-packages"
+  }
+}

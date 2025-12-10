@@ -1,0 +1,38 @@
+{
+  "id": "module-2-simulation/urdf-sdf",
+  "title": "URDF and SDF Robot Description Formats",
+  "description": "URDF vs SDF comparison, Converting URDF to SDF, SDF advanced features, Gazebo-specific URDF tags, Xacro macros.",
+  "source": "@site/docs/module-2-simulation/urdf-sdf.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/urdf-sdf",
+  "permalink": "/docs/module-2-simulation/urdf-sdf",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-2-simulation/urdf-sdf.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "urdf-sdf",
+    "title": "URDF and SDF Robot Description Formats",
+    "sidebar_label": "URDF & SDF",
+    "sidebar_position": 2,
+    "description": "URDF vs SDF comparison, Converting URDF to SDF, SDF advanced features, Gazebo-specific URDF tags, Xacro macros.",
+    "keywords": [
+      "urdf",
+      "sdf",
+      "xacro",
+      "robot-description",
+      "gazebo"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Gazebo Setup",
+    "permalink": "/docs/module-2-simulation/gazebo-setup"
+  },
+  "next": {
+    "title": "Physics Simulation",
+    "permalink": "/docs/module-2-simulation/physics-simulation"
+  }
+}

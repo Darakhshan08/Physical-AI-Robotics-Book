@@ -1,0 +1,39 @@
+{
+  "id": "module-2-simulation/physics-simulation",
+  "title": "Simulating Physics, Gravity, and Collisions",
+  "description": "Physics engines (DART, Bullet, ODE), Gravity configuration, Collision detection, Friction and contact parameters, Inertia calculations, Physics step size.",
+  "source": "@site/docs/module-2-simulation/physics-simulation.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/physics-simulation",
+  "permalink": "/docs/module-2-simulation/physics-simulation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-2-simulation/physics-simulation.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "physics-simulation",
+    "title": "Simulating Physics, Gravity, and Collisions",
+    "sidebar_label": "Physics Simulation",
+    "sidebar_position": 3,
+    "description": "Physics engines (DART, Bullet, ODE), Gravity configuration, Collision detection, Friction and contact parameters, Inertia calculations, Physics step size.",
+    "keywords": [
+      "gazebo",
+      "physics",
+      "simulation",
+      "gravity",
+      "collisions",
+      "friction"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "URDF & SDF",
+    "permalink": "/docs/module-2-simulation/urdf-sdf"
+  },
+  "next": {
+    "title": "Sensor Simulation",
+    "permalink": "/docs/module-2-simulation/sensor-simulation"
+  }
+}

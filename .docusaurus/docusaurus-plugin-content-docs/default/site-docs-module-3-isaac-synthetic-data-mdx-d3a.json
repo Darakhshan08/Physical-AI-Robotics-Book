@@ -1,0 +1,38 @@
+{
+  "id": "module-3-isaac/synthetic-data",
+  "title": "Photorealistic Simulation & Synthetic Data Generation",
+  "description": "Why synthetic data, Domain randomization, Replicator for data generation, Generating labeled datasets, Training-ready pipelines, Quality validation.",
+  "source": "@site/docs/module-3-isaac/synthetic-data.mdx",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/synthetic-data",
+  "permalink": "/docs/module-3-isaac/synthetic-data",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-3-isaac/synthetic-data.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "synthetic-data",
+    "title": "Photorealistic Simulation & Synthetic Data Generation",
+    "sidebar_label": "Synthetic Data",
+    "sidebar_position": 2,
+    "description": "Why synthetic data, Domain randomization, Replicator for data generation, Generating labeled datasets, Training-ready pipelines, Quality validation.",
+    "keywords": [
+      "synthetic-data",
+      "domain-randomization",
+      "isaac-replicator",
+      "computer-vision",
+      "deep-learning"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Isaac Overview",
+    "permalink": "/docs/module-3-isaac/isaac-overview"
+  },
+  "next": {
+    "title": "Isaac ROS VSLAM",
+    "permalink": "/docs/module-3-isaac/vslam"
+  }
+}

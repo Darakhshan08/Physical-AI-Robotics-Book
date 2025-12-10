@@ -1,0 +1,39 @@
+{
+  "id": "capstone/capstone-architecture",
+  "title": "System Architecture Design",
+  "description": "Node graph design, Topic/service mapping, Launch organization, Configuration management, Logging and debugging, Testing strategy.",
+  "source": "@site/docs/capstone/architecture.mdx",
+  "sourceDirName": "capstone",
+  "slug": "/capstone/capstone-architecture",
+  "permalink": "/docs/capstone/capstone-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/capstone/architecture.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "capstone-architecture",
+    "title": "System Architecture Design",
+    "sidebar_label": "Architecture Design",
+    "sidebar_position": 2,
+    "description": "Node graph design, Topic/service mapping, Launch organization, Configuration management, Logging and debugging, Testing strategy.",
+    "keywords": [
+      "capstone",
+      "architecture",
+      "ros2",
+      "nodes",
+      "topics",
+      "launch-files"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Project Overview",
+    "permalink": "/docs/capstone/capstone-overview"
+  },
+  "next": {
+    "title": "Voice Pipeline",
+    "permalink": "/docs/capstone/voice-pipeline"
+  }
+}

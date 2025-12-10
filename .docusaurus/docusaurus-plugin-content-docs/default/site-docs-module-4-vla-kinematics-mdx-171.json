@@ -1,0 +1,39 @@
+{
+  "id": "module-4-vla/kinematics",
+  "title": "Humanoid Robot Kinematics and Dynamics",
+  "description": "Forward kinematics, Inverse kinematics (IK), Denavit-Hartenberg parameters, Dynamics (Forces and torques), PyBullet simulation, IK solvers (KDL, TRAC-IK).",
+  "source": "@site/docs/module-4-vla/kinematics.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/kinematics",
+  "permalink": "/docs/module-4-vla/kinematics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/kinematics.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "kinematics",
+    "title": "Humanoid Robot Kinematics and Dynamics",
+    "sidebar_label": "Kinematics & Dynamics",
+    "sidebar_position": 1,
+    "description": "Forward kinematics, Inverse kinematics (IK), Denavit-Hartenberg parameters, Dynamics (Forces and torques), PyBullet simulation, IK solvers (KDL, TRAC-IK).",
+    "keywords": [
+      "robotics",
+      "kinematics",
+      "dynamics",
+      "humanoid",
+      "pybullet",
+      "ik"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Part 4: Vision-Language-Action - VLA",
+    "permalink": "/docs/category/part-4-vision-language-action---vla"
+  },
+  "next": {
+    "title": "Bipedal Locomotion",
+    "permalink": "/docs/module-4-vla/locomotion"
+  }
+}

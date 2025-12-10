@@ -1,0 +1,38 @@
+{
+  "id": "module-2-simulation/gazebo-setup",
+  "title": "Gazebo Simulation Environment Setup",
+  "description": "Gazebo Harmonic overview, Installation verification, GUI walkthrough, World files (.sdf), Loading robots, ros_gz_bridge setup.",
+  "source": "@site/docs/module-2-simulation/gazebo-setup.mdx",
+  "sourceDirName": "module-2-simulation",
+  "slug": "/module-2-simulation/gazebo-setup",
+  "permalink": "/docs/module-2-simulation/gazebo-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-2-simulation/gazebo-setup.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "gazebo-setup",
+    "title": "Gazebo Simulation Environment Setup",
+    "sidebar_label": "Gazebo Setup",
+    "sidebar_position": 1,
+    "description": "Gazebo Harmonic overview, Installation verification, GUI walkthrough, World files (.sdf), Loading robots, ros_gz_bridge setup.",
+    "keywords": [
+      "gazebo",
+      "simulation",
+      "ros2",
+      "sdf",
+      "ros_gz_bridge"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Part 2: The Digital Twin - Gazebo & Unity",
+    "permalink": "/docs/category/part-2-the-digital-twin---gazebo--unity"
+  },
+  "next": {
+    "title": "URDF & SDF",
+    "permalink": "/docs/module-2-simulation/urdf-sdf"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "module-1-ros2/architecture",
+          "docs": [
+            {
+              "id": "appendices/cloud-setup",
+              "path": "/docs/appendices/cloud-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "appendices/glossary",
+              "path": "/docs/appendices/glossary",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "appendices/hardware-setup",
+              "path": "/docs/appendices/hardware-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "appendices/resources",
+              "path": "/docs/appendices/resources",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "appendices/troubleshooting",
+              "path": "/docs/appendices/troubleshooting",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-architecture",
+              "path": "/docs/capstone/capstone-architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-deployment",
+              "path": "/docs/capstone/capstone-deployment",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-integration",
+              "path": "/docs/capstone/capstone-integration",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-manipulation",
+              "path": "/docs/capstone/capstone-manipulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-navigation",
+              "path": "/docs/capstone/capstone-navigation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/capstone-overview",
+              "path": "/docs/capstone/capstone-overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "capstone/voice-pipeline",
+              "path": "/docs/capstone/voice-pipeline",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/course-overview",
+              "path": "/docs/intro/course-overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/environment-setup",
+              "path": "/docs/intro/environment-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/what-is-physical-ai",
+              "path": "/docs/intro/what-is-physical-ai",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/why-humanoid-robots",
+              "path": "/docs/intro/why-humanoid-robots",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/architecture",
+              "path": "/docs/module-1-ros2/architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/bridging-agents",
+              "path": "/docs/module-1-ros2/bridging-agents",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/launch-files",
+              "path": "/docs/module-1-ros2/launch-files",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/nodes-topics-services",
+              "path": "/docs/module-1-ros2/nodes-topics-services",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/python-packages",
+              "path": "/docs/module-1-ros2/python-packages",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-1-ros2/urdf-humanoids",
+              "path": "/docs/module-1-ros2/urdf-humanoids",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/gazebo-setup",
+              "path": "/docs/module-2-simulation/gazebo-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/hri-simulation",
+              "path": "/docs/module-2-simulation/hri-simulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/physics-simulation",
+              "path": "/docs/module-2-simulation/physics-simulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/sensor-simulation",
+              "path": "/docs/module-2-simulation/sensor-simulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/unity-rendering",
+              "path": "/docs/module-2-simulation/unity-rendering",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-2-simulation/urdf-sdf",
+              "path": "/docs/module-2-simulation/urdf-sdf",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/isaac-overview",
+              "path": "/docs/module-3-isaac/isaac-overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/nav2",
+              "path": "/docs/module-3-isaac/nav2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/reinforcement-learning",
+              "path": "/docs/module-3-isaac/reinforcement-learning",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/sim-to-real",
+              "path": "/docs/module-3-isaac/sim-to-real",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/synthetic-data",
+              "path": "/docs/module-3-isaac/synthetic-data",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-3-isaac/vslam",
+              "path": "/docs/module-3-isaac/vslam",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/cognitive-planning",
+              "path": "/docs/module-4-vla/cognitive-planning",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/conversational-ai",
+              "path": "/docs/module-4-vla/conversational-ai",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/kinematics",
+              "path": "/docs/module-4-vla/kinematics",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/locomotion",
+              "path": "/docs/module-4-vla/locomotion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/manipulation",
+              "path": "/docs/module-4-vla/manipulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/multimodal",
+              "path": "/docs/module-4-vla/multimodal",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "module-4-vla/voice-to-action",
+              "path": "/docs/module-4-vla/voice-to-action",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/part-1-the-robotic-nervous-system---ros-2",
+              "path": "/docs/category/part-1-the-robotic-nervous-system---ros-2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/part-2-the-digital-twin---gazebo--unity",
+              "path": "/docs/category/part-2-the-digital-twin---gazebo--unity",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/part-3-the-ai-robot-brain---nvidia-isaac",
+              "path": "/docs/category/part-3-the-ai-robot-brain---nvidia-isaac",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/part-4-vision-language-action---vla",
+              "path": "/docs/category/part-4-vision-language-action---vla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/part-5-capstone-project",
+              "path": "/docs/category/part-5-capstone-project",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/appendices",
+              "path": "/docs/category/appendices",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/category/part-1-the-robotic-nervous-system---ros-2",
+                "label": "Part 1: The Robotic Nervous System - ROS 2"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

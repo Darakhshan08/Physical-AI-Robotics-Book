@@ -1,0 +1,39 @@
+{
+  "id": "appendices/hardware-setup",
+  "title": "Hardware Setup Guides",
+  "description": "Jetson Orin Nano complete setup, Intel RealSense D435i configuration, ReSpeaker microphone setup, Unitree Go2/G1 SDK, Network configuration.",
+  "source": "@site/docs/appendices/hardware-setup.mdx",
+  "sourceDirName": "appendices",
+  "slug": "/appendices/hardware-setup",
+  "permalink": "/docs/appendices/hardware-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/appendices/hardware-setup.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "hardware-setup",
+    "title": "Hardware Setup Guides",
+    "sidebar_label": "Hardware Setup",
+    "sidebar_position": 1,
+    "description": "Jetson Orin Nano complete setup, Intel RealSense D435i configuration, ReSpeaker microphone setup, Unitree Go2/G1 SDK, Network configuration.",
+    "keywords": [
+      "hardware",
+      "setup",
+      "jetson-orin-nano",
+      "realsense",
+      "unitree",
+      "ros2"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Appendices",
+    "permalink": "/docs/category/appendices"
+  },
+  "next": {
+    "title": "Cloud Lab Setup",
+    "permalink": "/docs/appendices/cloud-setup"
+  }
+}

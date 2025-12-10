@@ -1,0 +1,38 @@
+{
+  "id": "module-3-isaac/isaac-overview",
+  "title": "NVIDIA Isaac SDK and Isaac Sim Overview",
+  "description": "Isaac ecosystem components, Isaac Sim (Omniverse-based), Isaac ROS vs Isaac SDK, Hardware requirements, Installation and licensing, First scene creation.",
+  "source": "@site/docs/module-3-isaac/isaac-overview.mdx",
+  "sourceDirName": "module-3-isaac",
+  "slug": "/module-3-isaac/isaac-overview",
+  "permalink": "/docs/module-3-isaac/isaac-overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-3-isaac/isaac-overview.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "isaac-overview",
+    "title": "NVIDIA Isaac SDK and Isaac Sim Overview",
+    "sidebar_label": "Isaac Overview",
+    "sidebar_position": 1,
+    "description": "Isaac ecosystem components, Isaac Sim (Omniverse-based), Isaac ROS vs Isaac SDK, Hardware requirements, Installation and licensing, First scene creation.",
+    "keywords": [
+      "nvidia-isaac",
+      "isaac-sim",
+      "omniverse",
+      "isaac-ros",
+      "robotics-simulation"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Part 3: The AI-Robot Brain - NVIDIA Isaac",
+    "permalink": "/docs/category/part-3-the-ai-robot-brain---nvidia-isaac"
+  },
+  "next": {
+    "title": "Synthetic Data",
+    "permalink": "/docs/module-3-isaac/synthetic-data"
+  }
+}

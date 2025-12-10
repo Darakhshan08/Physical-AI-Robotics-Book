@@ -1,0 +1,24 @@
+{
+  "id": "module-4-vla/cognitive-planning",
+  "title": "Cognitive Planning with LLMs",
+  "description": "Large Language Models (LLMs) are demonstrating remarkable abilities in understanding, reasoning, and generating human-like text. This cognitive prowess can be harnessed to enable robots to perform high-level planning, interpret complex commands, and even adapt to novel situations, effectively giving robots a \"cognitive brain.\" This chapter explores how LLMs can be used for cognitive planning in robotics.",
+  "source": "@site/docs/module-4-vla/cognitive-planning.mdx",
+  "sourceDirName": "module-4-vla",
+  "slug": "/module-4-vla/cognitive-planning",
+  "permalink": "/docs/module-4-vla/cognitive-planning",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/module-4-vla/cognitive-planning.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Conversational AI",
+    "permalink": "/docs/module-4-vla/conversational-ai"
+  },
+  "next": {
+    "title": "Part 5: Capstone Project",
+    "permalink": "/docs/category/part-5-capstone-project"
+  }
+}
