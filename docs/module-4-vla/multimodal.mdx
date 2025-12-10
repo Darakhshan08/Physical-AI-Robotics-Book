@@ -1,0 +1,161 @@
+---
+id: multimodal
+title: Multi-modal Interaction (Speech, Gesture, Vision)
+sidebar_label: Multi-modal Interaction
+sidebar_position: 6
+description: Multi-modal fusion strategies, Gesture recognition with MediaPipe, Combining voice + gesture, Visual attention, Context-aware responses.
+keywords: [multi-modal, gesture-recognition, mediapipe, visual-attention, hri]
+---
+
+# Multi-modal Interaction (Speech, Gesture, Vision)
+
+Human communication is inherently multi-modal, combining spoken language, gestures, facial expressions, and visual cues to convey meaning. For humanoid robots to interact naturally and effectively with humans, they must also process and interpret information from multiple modalities. This chapter explores strategies for multi-modal fusion, focusing on integrating speech, gesture, and vision.
+
+## Multi-modal Fusion Strategies
+
+**Multi-modal fusion** is the process of combining information from different sensory modalities to gain a more comprehensive understanding of a situation. For human-robot interaction, fusion can occur at different levels:
+
+-   **Early Fusion (Feature-level)**: Features extracted from each modality are concatenated and fed into a single model for processing. This captures low-level correlations but can be sensitive to asynchronous inputs.
+-   **Late Fusion (Decision-level)**: Each modality is processed independently to make a preliminary decision, and then these decisions are combined (e.g., through voting, weighted averaging, or a higher-level fusion model). This is robust to asynchrony but may miss subtle inter-modal cues.
+-   **Intermediate Fusion (Hybrid)**: A combination of both, where some features are fused early, and others are processed independently before a final decision.
+
+## Gesture Recognition with MediaPipe
+
+**Gesture recognition** provides a non-verbal channel of communication for robots. Humans use gestures to point, emphasize, or convey commands. **MediaPipe**, an open-source framework by Google, offers highly accurate and efficient solutions for real-time human pose, hand, and face tracking, making it an excellent tool for gesture recognition.
+
+### Key features of MediaPipe:
+-   **Cross-platform**: Runs on various devices (desktop, mobile, edge devices).
+-   **Real-time performance**: Optimized for low-latency applications.
+-   **Pre-trained models**: Provides models for pose estimation, hand tracking, face detection, etc.
+-   **Python API**: Easy to integrate into ROS 2 Python nodes.
+
+### Example: MediaPipe Detector, Multi-modal Processor (Conceptual)
+
+This conceptual Python code shows how a MediaPipe detector could be integrated into a multi-modal processor node.
+
+```python
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from std_msgs.msg import String # For voice commands
+from geometry_msgs.msg import PoseArray # For detected gestures/poses
+from cv_bridge import CvBridge
+import cv2
+import mediapipe as mp
+import time
+
+class MultiModalProcessor(Node):
+    def __init__(self):
+        super().__init__('multi_modal_processor')
+        self.image_subscription = self.create_subscription(
+            Image,
+            '/camera/image_raw',
+            self.image_callback,
+            10
+        )
+        self.voice_subscription = self.create_subscription(
+            String,
+            '/robot/voice_command', # From Whisper node
+            self.voice_command_callback,
+            10
+        )
+        self.gesture_publisher = self.create_publisher(PoseArray, '/human/gesture_pose', 10)
+        self.combined_command_publisher = self.create_publisher(String, '/robot/combined_command', 10)
+
+        self.cv_bridge = CvBridge()
+        self.mp_hands = mp.solutions.hands
+        self.hands = self.mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.5)
+        
+        self.last_voice_command = ""
+        self.last_gesture_pose = None
+        self.last_image_time = time.time()
+
+        self.get_logger().info("Multi-Modal Processor Node started.")
+
+    def image_callback(self, msg: Image):
+        """Processes incoming camera images for gesture recognition."""
+        current_time = time.time()
+        # Process image at a lower rate to save CPU
+        if (current_time - self.last_image_time) < 0.1: # Process at 10 Hz
+            return
+        self.last_image_time = current_time
+
+        try:
+            cv_image = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+        except Exception as e:
+            self.get_logger().error(f"CvBridge error: {e}")
+            return
+
+        # Perform hand tracking with MediaPipe
+        results = self.hands.process(cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
+        if results.multi_hand_landmarks:
+            for hand_landmarks in results.multi_hand_landmarks:
+                # Convert MediaPipe landmarks to ROS PoseArray or custom message
+                gesture_pose_array = PoseArray()
+                gesture_pose_array.header.stamp = self.get_clock().now().to_msg()
+                gesture_pose_array.header.frame_id = 'camera_frame' # Assume camera frame
+                
+                # Example: publish wrist pose
+                wrist_landmark = hand_landmarks.landmark[self.mp_hands.HandLandmark.WRIST]
+                wrist_pose = Pose()
+                wrist_pose.position.x = wrist_landmark.x
+                wrist_pose.position.y = wrist_landmark.y
+                wrist_pose.position.z = wrist_landmark.z
+                gesture_pose_array.poses.append(wrist_pose)
+                
+                self.gesture_publisher.publish(gesture_pose_array)
+                self.last_gesture_pose = gesture_pose_array # Store for fusion
+                
+                # Simple gesture recognition (conceptual)
+                # If a specific gesture is detected (e.g., open hand, closed fist)
+                # publish a corresponding command or update state.
+        
+        self.fuse_modalities()
+
+    def voice_command_callback(self, msg: String):
+        """Processes incoming voice commands."""
+        self.last_voice_command = msg.data
+        self.get_logger().info(f"Received voice command: {self.last_voice_command}")
+        self.fuse_modalities()
+
+    def fuse_modalities(self):
+        """Conceptual function for combining information from different modalities."""
+        if self.last_voice_command and self.last_gesture_pose:
+            # Example: Combine voice command with gesture for context
+            if "point" in self.last_voice_command.lower() and self.last_gesture_pose:
+                self.get_logger().info("Fusing 'point' command with detected gesture.")
+                # Logic to interpret what the robot should point at based on gesture_pose
+                combined_cmd = f"point_at_gesture: {self.last_gesture_pose.poses[0].position}"
+                self.combined_command_publisher.publish(String(data=combined_cmd))
+                self.last_voice_command = "" # Clear after fusion
+                self.last_gesture_pose = None
+        # Other fusion logic based on specific scenarios
+
+def main(args=None):
+    rclpy.init(args=args)
+    multi_modal_node = MultiModalProcessor()
+    rclpy.spin(multi_modal_node)
+    multi_modal_node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## Combining Voice + Gesture
+
+The true power of multi-modal interaction comes from **combining** information from different modalities to disambiguate commands or add context.
+-   **Point-and-speak**: A human points to an object while saying "pick this up." The robot fuses the visual information from the gesture with the verbal command to identify the target object.
+-   **Gestural confirmation**: A robot asks "Confirm?" and the human responds with a nod or a thumbs-up.
+
+## Visual Attention
+
+**Visual attention** mechanisms allow robots to focus on salient parts of their visual field, often guided by other modalities. For example:
+-   An auditory cue (a human speaking) can direct the robot's visual attention to the speaker's face.
+-   A pointing gesture can direct the robot's gaze to the pointed object.
+
+## Context-aware Responses
+
+Multi-modal inputs allow robots to generate **context-aware responses**.
+-   If a human issues a command with an accompanying gesture, the robot's verbal or physical response can acknowledge both modalities (e.g., "I will pick up the object you just pointed at").
+-   The robot can infer human intent more accurately by considering all available cues, leading to more natural and helpful interactions.

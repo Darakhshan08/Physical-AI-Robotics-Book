@@ -1,0 +1,57 @@
+---
+id: troubleshooting
+title: Troubleshooting Common Issues
+sidebar_label: Troubleshooting
+sidebar_position: 3
+description: ROS 2 errors and fixes, Gazebo crashes, Isaac Sim GPU issues, Network problems, Build failures.
+keywords: [troubleshooting, ros2, gazebo, isaac-sim, network, build]
+---
+
+# Troubleshooting Common Issues
+
+Developing robotic applications is complex, and encountering issues is a natural part of the process. This appendix provides a guide to troubleshooting common problems you might face when working with ROS 2, Gazebo, NVIDIA Isaac Sim, and other tools covered in this book.
+
+## ROS 2 Errors and Fixes
+
+| Problem                                     | Cause                                                         | Solution                                                                                                                                                                                                       |
+| :------------------------------------------ | :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`ros2: command not found`**                 | ROS 2 environment not sourced.                                | `source /opt/ros/humble/setup.bash` (or your workspace setup.bash). Add to `~/.bashrc` for permanent effect.                                                                                                   |
+| **Nodes not discovering each other**          | - Incorrect `ROS_DOMAIN_ID`. <br /> - Firewall blocking DDS ports. <br /> - Network issues. | - Ensure `ROS_DOMAIN_ID` is consistent across all devices. <br /> - Check firewall rules (allow UDP ports 7400-7500). <br /> - Verify network connectivity.                                                      |
+| **`ImportError: No module named 'rclpy'`**    | Python environment not correctly set up.                      | - Activate your Python virtual environment. <br /> - Ensure `rclpy` (and other ROS 2 Python packages) are installed and your workspace is sourced.                                                                 |
+| **`Failed to load plugin 'lib...so'`**        | Missing shared library or incorrect path.                     | - Ensure the plugin package is built and sourced. <br /> - Check if the library (`.so` file) exists in your `install/` directory. <br /> - Verify plugin name and path in launch files/configurations.               |
+| **High CPU/Memory Usage**                   | - Too many nodes running. <br /> - Inefficient code. <br /> - Large message sizes. | - Consolidate nodes where appropriate. <br /> - Optimize code (e.g., use `numpy` for image processing). <br /> - Reduce message frequency or use smaller message types if possible.                                  |
+| **ROS 2 launch file fails to find package** | - Package not built. <br /> - Package not in `ROS_PACKAGE_PATH`. | - Run `colcon build --packages-select <package_name>` and `source install/setup.bash`. <br /> - Verify `package.xml` is correct.                                                                                  |
+| **`Parameter not found`**                     | - Parameter not declared in node. <br /> - Incorrect parameter name/namespace. | - Ensure `self.declare_parameter()` is used in your node. <br /> - Check parameter file path and namespace in launch files.                                                                                    |
+
+## Gazebo Crashes
+
+| Problem                                     | Cause                                                               | Solution                                                                                                                                                                                                       |
+| :------------------------------------------ | :------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Gazebo crashes on startup**               | - GPU driver issues. <br /> - Incompatible Gazebo version. <br /> - Corrupted installation. | - Update/reinstall NVIDIA GPU drivers. <br /> - Ensure Gazebo Harmonic is correctly installed for Ubuntu 22.04 and ROS 2 Humble. <br /> - Try reinstalling Gazebo.                                                     |
+| **Robot models appear distorted/invisible** | - Incorrect URDF/SDF syntax. <br /> - Missing mesh files. <br /> - Incorrect paths to models. | - Validate your URDF/SDF using `check_urdf` or online validators. <br /> - Ensure mesh files (DAE, STL, OBJ) are correctly referenced and accessible. <br /> - Check Gazebo's model path (`GAZEBO_MODEL_PATH`).       |
+| **Simulation runs too slow**                | - Complex world/robot model. <br /> - High sensor update rates. <br /> - Inefficient physics. | - Simplify models (reduce polygon count). <br /> - Reduce sensor update rates. <br /> - Adjust physics `max_step_size` or choose a different physics engine (e.g., ODE for speed). <br /> - Ensure sufficient CPU/GPU. |
+| **Robot falls over unexpectedly**           | - Incorrect inertial properties. <br /> - Unstable joint limits. <br /> - Physics engine issues. | - Double-check mass and inertia tensor values in URDF/SDF. <br /> - Verify joint limits and stiffness. <br /> - Experiment with different physics engines (Bullet/DART might be more stable).                          |
+
+## Isaac Sim GPU Issues
+
+| Problem                                     | Cause                                                         | Solution                                                                                                                                                                                                       |
+| :------------------------------------------ | :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Isaac Sim fails to launch/crashes**       | - Outdated NVIDIA drivers. <br /> - Insufficient GPU VRAM. <br /> - Incorrect Omniverse/Isaac Sim installation. | - Ensure NVIDIA drivers are up-to-date. <br /> - Close other GPU-intensive applications. <br /> - Reinstall Isaac Sim and Omniverse Launcher, ensuring all dependencies are met.                                      |
+| **Poor performance/low FPS**                | - Complex scene. <br /> - High sensor output. <br /> - Limited GPU resources. | - Simplify 3D models and textures. <br /> - Reduce sensor resolutions/update rates. <br /> - Upgrade GPU or use a less demanding rendering quality setting.                                                          |
+| **`CUDA Error` / GPU memory issues**          | - Running out of GPU memory. <br /> - Incompatible CUDA version.  | - Reduce scene complexity. <br /> - Use smaller batch sizes for AI model training. <br /> - Verify your CUDA toolkit version matches Isaac Sim requirements.                                                            |
+
+## Network Problems
+
+| Problem                                     | Cause                                                         | Solution                                                                                                                                                                                                       |
+| :------------------------------------------ | :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Devices not communicating (ROS 2)**       | - Different `ROS_DOMAIN_ID`. <br /> - Firewall. <br /> - Network configuration. | - Set `ROS_DOMAIN_ID` to the same value on all devices. <br /> - Configure firewall to allow DDS traffic (UDP ports 7400-7500). <br /> - Ensure devices are on the same subnet, check IP addresses.                     |
+| **High latency/packet loss**                | - Congested network. <br /> - Poor Wi-Fi signal. <br /> - Large message sizes. | - Use wired Ethernet where possible. <br /> - Optimize Wi-Fi setup (clear channels, stronger signal). <br /> - Reduce message frequency or use more efficient message types.                                           |
+| **SSH/SCP connection refused**              | - Incorrect IP/username. <br /> - SSH server not running. <br /> - Firewall on remote host. | - Double-check IP address and username. <br /> - Ensure SSH server is installed and running on the target device (`sudo systemctl status ssh`). <br /> - Configure firewall on target to allow SSH (port 22).       |
+
+## Build Failures
+
+| Problem                                     | Cause                                                         | Solution                                                                                                                                                                                                       |
+| :------------------------------------------ | :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`colcon build` fails**                      | - Missing dependencies. <br /> - Syntax errors in code. <br /> - Incorrect `package.xml`/`setup.py`. | - Run `rosdep install --from-paths src --ignore-src -r -y`. <br /> - Carefully check compiler/interpreter errors. <br /> - Validate XML/Python syntax, ensure `build_type` is correct.                               |
+| **`npm install` fails**                       | - Network issues. <br /> - Outdated Node.js/npm. <br /> - Corrupted `package-lock.json`. | - Check internet connection. <br /> - Update Node.js and npm (`nvm install node && nvm use node`). <br /> - Delete `node_modules` and `package-lock.json`, then retry `npm install`.                               |
+| **Docusaurus build fails (`npm run build`)**| - Broken internal links. <br /> - Markdown/MDX syntax errors. <br /> - Incorrect Docusaurus config. | - Check console output for specific errors (e.g., broken links, markdown parsing issues). <br /> - Ensure all Markdown/MDX files are correctly formatted and frontmatter is valid. <br /> - Review `docusaurus.config.js`. |

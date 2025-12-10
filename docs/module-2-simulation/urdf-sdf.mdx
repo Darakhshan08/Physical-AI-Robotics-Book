@@ -1,0 +1,121 @@
+---
+id: urdf-sdf
+title: URDF and SDF Robot Description Formats
+sidebar_label: URDF & SDF
+sidebar_position: 2
+description: URDF vs SDF comparison, Converting URDF to SDF, SDF advanced features, Gazebo-specific URDF tags, Xacro macros.
+keywords: [urdf, sdf, xacro, robot-description, gazebo]
+---
+
+# URDF and SDF Robot Description Formats
+
+When working with robot simulations, especially in Gazebo, you'll encounter two primary robot description formats: URDF (Unified Robot Description Format) and SDF (Simulation Description Format). While URDF is the standard for ROS, SDF is native to Gazebo and offers more comprehensive simulation capabilities.
+
+## URDF vs SDF Comparison
+
+| Feature             | URDF (Unified Robot Description Format)          | SDF (Simulation Description Format)                        |
+| :------------------ | :----------------------------------------------- | :--------------------------------------------------------- |
+| **Purpose**         | Describe robot kinematics, dynamics, visuals     | Describe robots, environments, and simulation properties   |
+| **Origin**          | ROS (Robot Operating System)                     | Gazebo (originally)                                        |
+| **Scope**           | Single robot                                     | Multiple robots, static environments, dynamic objects      |
+| **Joint Types**     | Limited (revolute, prismatic, fixed, continuous) | More extensive, including ball, universal, screw, gear     |
+| **Physics Props**   | Only inertial properties                         | Comprehensive physics, collisions, sensors, plugins        |
+| **Coordinate Sys.** | Z-up, right-hand rule                            | Z-up, right-hand rule                                      |
+| **Flexibility**     | Extensible with Xacro macros                     | Built-in extensive features, less reliance on external tools |
+
+**Key takeaway**: URDF is excellent for describing the robot itself in ROS, while SDF is more powerful for describing the entire simulation world, including the robot and its interaction with the environment.
+
+## Converting URDF to SDF
+
+Gazebo can directly parse URDF files, converting them internally to SDF. However, not all URDF features are fully supported, and some advanced Gazebo features are only accessible via native SDF.
+
+You can often load a URDF directly into Gazebo via a ROS 2 launch file, and Gazebo will perform the conversion. For more complex scenarios or when using specific Gazebo features, you might need to convert your URDF to a full SDF model.
+
+## SDF Advanced Features
+
+SDF offers several advanced features that are not available in URDF:
+-   **Environment Description**: Define light sources, terrain, and other static elements of the world.
+-   **Plugins**: Extend Gazebo's functionality with custom plugins for sensors, controllers, or actuators.
+-   **Sensors**: Richer sensor definitions including noise models, update rates, and more precise physical properties.
+-   **Joint Limits and Actuators**: More detailed control over joint dynamics and motor characteristics.
+-   **Collision Detection**: Advanced collision properties including friction coefficients and contact parameters.
+
+## Gazebo-specific URDF Tags
+
+To leverage some Gazebo-specific features while still using URDF as your primary robot description, you can embed Gazebo extensions directly within your URDF using the `<gazebo>` tag.
+
+### Example: Adding a Gazebo color property to a link
+
+```xml
+<link name="base_link">
+  <visual>
+    <geometry><box size="0.1 0.1 0.1"/></geometry>
+    <material name="Gazebo/Orange"/>
+  </visual>
+  <!-- ... other properties ... -->
+</link>
+
+<gazebo reference="base_link">
+  <material>Gazebo/Orange</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+</gazebo>
+```
+Here, `<gazebo reference="base_link">` allows you to add simulation-specific properties like material colors or friction coefficients for a link.
+
+## Xacro Macros
+
+**Xacro** (XML Macros) is an XML macro language that allows for shorter and more readable XML files. It's commonly used with URDF to:
+-   **Parameterize models**: Use variables for dimensions, masses, etc.
+-   **Modularize descriptions**: Define reusable components (e.g., a standard wheel assembly, a robotic arm segment) that can be included in multiple places.
+-   **Simplify complex models**: Reduce repetition and make large robot descriptions more manageable.
+
+### Example: Simple Xacro usage
+
+**`my_robot_description/urdf/simple_robot.urdf.xacro`**
+```xml
+<?xml version="1.0"?>
+<robot name="simple_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535897931" />
+  <xacro:property name="chassis_length" value="0.3" />
+  <xacro:property name="chassis_width" value="0.2" />
+  <xacro:property name="chassis_height" value="0.1" />
+
+  <link name="base_link">
+    <visual>
+      <geometry><box size="${chassis_length} ${chassis_width} ${chassis_height}"/></geometry>
+      <material name="blue"/>
+    </visual>
+    <!-- ... other properties ... -->
+  </link>
+
+  <xacro:macro name="standard_wheel" params="prefix parent_link *origin">
+    <link name="${prefix}_wheel_link">
+      <visual>
+        <geometry><cylinder radius="0.05" length="0.02"/></geometry>
+      </visual>
+    </link>
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <parent link="${parent_link}"/>
+      <child link="${prefix}_wheel_link"/>
+      <xacro:insert_block name="origin"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:standard_wheel prefix="left" parent_link="base_link">
+    <origin xyz="0 0.1 -0.05" rpy="${PI/2} 0 0"/>
+  </xacro:standard_wheel>
+
+  <xacro:standard_wheel prefix="right" parent_link="base_link">
+    <origin xyz="0 -0.1 -0.05" rpy="${PI/2} 0 0"/>
+  </xacro:standard_wheel>
+
+</robot>
+```
+To process an Xacro file into a URDF:
+```bash
+ros2 run xacro xacro --inorder simple_robot.urdf.xacro > simple_robot.urdf
+```
+This generates the final URDF XML that can then be used by ROS 2 or Gazebo.

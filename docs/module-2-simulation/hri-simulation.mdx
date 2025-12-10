@@ -1,0 +1,161 @@
+---
+id: hri-simulation
+title: Human-Robot Interaction in Simulation
+sidebar_label: HRI in Simulation
+sidebar_position: 6
+description: Simulating human actors, Gesture recognition setup, Proximity sensors, Social navigation, Testing HRI scenarios.
+keywords: [hri, simulation, human-robot-interaction, gazebo, media-pipe]
+---
+
+# Human-Robot Interaction in Simulation
+
+Human-Robot Interaction (HRI) is a critical field, especially for humanoid robots designed to operate in human environments. Simulating HRI scenarios allows us to safely test and refine robot behaviors before deployment in the real world. Gazebo, combined with ROS 2, provides capabilities to model human actors, recognize gestures, and implement social navigation.
+
+## Simulating Human Actors
+
+In Gazebo, human actors can be represented as animated 3D models. These models can be controlled to follow paths, perform gestures, or interact with the environment.
+
+### Example: Including a Human Actor in an SDF World
+
+```xml
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="hri_world">
+    <!-- ... physics and scene setup ... -->
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Human Actor Model -->
+    <actor name="human_actor">
+      <skin>
+        <filename>model://human/meshes/human.dae</filename>
+      </skin>
+      <animation name="walking">
+        <filename>model://human/walk.dae</filename>
+        <id>0</id>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>0.0</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walking">
+          <waypoint>
+            <time>0</time>
+            <pose>0 0 1.0 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>5</time>
+            <pose>5 0 1.0 0 0 1.57</pose>
+          </waypoint>
+          <waypoint>
+            <time>10</time>
+            <pose>5 5 1.0 0 0 3.14</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+  </world>
+</sdf>
+```
+You would need to have the `human` model (or a similar animated character) available in Gazebo's model path.
+
+## Gesture Recognition Setup
+
+Gesture recognition allows robots to understand human intentions through body language. In simulation, this can be modeled by:
+-   **Pre-defined animations**: Triggering specific human actor animations (e.g., waving, pointing).
+-   **Sensor data interpretation**: Using simulated camera data and a vision pipeline (e.g., MediaPipe, OpenPose) to detect human poses and gestures, then translating these into ROS 2 messages for the robot to interpret.
+
+### Example: Conceptual Human Detection Node (Python)
+
+This Python ROS 2 node conceptually processes simulated camera data to detect humans and their poses.
+
+```python
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from geometry_msgs.msg import Pose2D # Or a custom message for human pose
+from cv_bridge import CvBridge
+import cv2
+import mediapipe as mp # Assumes MediaPipe is installed and configured
+
+class HumanDetectionNode(Node):
+    def __init__(self):
+        super().__init__('human_detection_node')
+        self.subscription = self.create_subscription(
+            Image,
+            '/camera/image_raw',
+            self.image_callback,
+            10
+        )
+        self.publisher_ = self.create_publisher(Pose2D, '/human_pose', 10)
+        self.cv_bridge = CvBridge()
+        self.mp_pose = mp.solutions.pose
+        self.pose = self.mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+        self.get_logger().info("Human Detection Node started.")
+
+    def image_callback(self, msg):
+        try:
+            cv_image = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+        except Exception as e:
+            self.get_logger().error(f"CvBridge error: {e}")
+            return
+
+        # Process the image with MediaPipe
+        results = self.pose.process(cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB))
+
+        if results.pose_landmarks:
+            # Example: Extract approximate center of detected human
+            # This is a simplification; real gesture recognition is more complex
+            x_center = sum([lmk.x for lmk in results.pose_landmarks.landmark]) / len(results.pose_landmarks.landmark)
+            y_center = sum([lmk.y for lmk in results.pose_landmarks.landmark]) / len(results.pose_landmarks.landmark)
+            
+            human_pose_msg = Pose2D()
+            human_pose_msg.x = float(x_center)
+            human_pose_msg.y = float(y_center)
+            human_pose_msg.theta = 0.0 # Placeholder
+            self.publisher_.publish(human_pose_msg)
+            self.get_logger().info(f"Detected human at ({x_center:.2f}, {y_center:.2f})")
+        
+        # Optional: Render landmarks on image for visualization
+        # mp.solutions.drawing_utils.draw_landmarks(cv_image, results.pose_landmarks, self.mp_pose.POSE_CONNECTIONS)
+        # cv2.imshow("Image", cv_image)
+        # cv2.waitKey(1)
+
+def main(args=None):
+    rclpy.init(args=args)
+    human_detection_node = HumanDetectionNode()
+    rclpy.spin(human_detection_node)
+    human_detection_node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+This node would subscribe to a simulated camera feed and publish detected human poses.
+
+## Proximity Sensors
+
+Simulated proximity sensors (e.g., infrared, ultrasonic) can be added to robots or the environment in Gazebo to detect the presence of human actors or other objects. This is crucial for collision avoidance and safe navigation in close quarters.
+
+## Social Navigation
+
+Social navigation involves planning robot paths that are socially acceptable and avoid disturbing humans. In simulation, this can be tested by:
+-   **Costmaps**: Modifying navigation costmaps to penalize paths too close to human actors.
+-   **Predictive models**: Using models to predict human movement and plan robot trajectories accordingly.
+-   **Dynamic Obstacle Avoidance**: Integrating algorithms that treat human actors as dynamic obstacles.
+
+## Testing HRI Scenarios
+
+Simulation allows for systematic testing of various HRI scenarios:
+-   **Robot following human**: Testing navigation algorithms that maintain a safe distance.
+-   **Object handover**: Simulating a robot offering an object to a human.
+-   **Emergency stops**: Testing how a robot reacts to sudden human movements or intrusions into its workspace.
+-   **Gesture-based control**: Evaluating the robot's response to different human gestures.
+
+These simulations provide a safe and repeatable environment to refine robot control and interaction strategies before real-world deployment.

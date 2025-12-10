@@ -1,0 +1,220 @@
+---
+id: launch-files
+title: Launch Files and Parameter Management
+sidebar_label: Launch Files & Parameters
+sidebar_position: 5
+description: Python launch file syntax, Launching multiple nodes, Parameters (declaration and usage), YAML parameter files, Remapping topics, Conditional launching.
+keywords: [ros2, launch-files, python, parameters, yaml, remapping]
+---
+
+# Launch Files and Parameter Management
+
+As ROS 2 applications grow in complexity, managing multiple nodes, their configurations, and interconnections becomes challenging. **Launch files** provide a structured way to start and manage entire robot systems. Coupled with **parameter management**, they offer powerful tools for configuring and customizing your robotic applications.
+
+## Python Launch File Syntax
+
+ROS 2 launch files are written in Python. This allows for powerful programmatic control over the launch process, including conditional logic, loops, and integration with other Python modules.
+
+A typical launch file involves:
+-   Importing necessary modules (e.g., `LaunchDescription`, `Node`, `ExecuteProcess`).
+-   Defining a `generate_launch_description()` function.
+-   Instantiating `Node` objects for your ROS 2 executables.
+-   Adding `Node` instances and other launch actions to a `LaunchDescription`.
+
+### Example: Simple Launch File
+
+**`my_python_package/launch/my_robot_launch.py`**
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_python_package',
+            executable='simple_publisher',
+            name='my_publisher',
+            output='screen',
+            emulate_tty=True,
+        ),
+        Node(
+            package='my_python_package',
+            executable='simple_subscriber',
+            name='my_subscriber',
+            output='screen',
+            emulate_tty=True,
+        )
+    ])
+```
+
+To run this launch file:
+
+```bash
+ros2 launch my_python_package my_robot_launch.py
+```
+
+## Launching Multiple Nodes
+
+Launch files are particularly useful for orchestrating multiple nodes that constitute a robotic system. You simply add more `Node` objects to your `LaunchDescription`.
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_python_package',
+            executable='sensor_node',
+            name='robot_sensor',
+            output='screen',
+        ),
+        Node(
+            package='my_python_package',
+            executable='motor_controller',
+            name='robot_motors',
+            output='screen',
+        ),
+        Node(
+            package='my_python_package',
+            executable='navigation_planner',
+            name='planner',
+            output='screen',
+        )
+    ])
+```
+
+## Parameters: Declaration and Usage
+
+**Parameters** allow you to configure nodes at runtime without recompiling code. Nodes declare parameters, and these parameters can be set via launch files, YAML files, or the command line.
+
+### Declaring Parameters in a Node
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class ConfigurableNode(Node):
+    def __init__(self):
+        super().__init__('configurable_node')
+        self.declare_parameter('my_parameter', 'default_value')
+        self.declare_parameter('int_param', 10)
+        
+        self.param_value = self.get_parameter('my_parameter').get_parameter_value().string_value
+        self.int_value = self.get_parameter('int_param').get_parameter_value().integer_value
+        
+        self.get_logger().info(f'my_parameter: {self.param_value}')
+        self.get_logger().info(f'int_param: {self.int_value}')
+
+def main(args=None):
+    rclpy.init(args=args)
+    configurable_node = ConfigurableNode()
+    rclpy.spin(configurable_node)
+    configurable_node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## YAML Parameter Files
+
+For complex configurations, parameters can be stored in YAML files and loaded by the launch system.
+
+**`my_python_package/config/params.yaml`**
+```yaml
+configurable_node:
+  ros__parameters:
+    my_parameter: "configured_from_yaml"
+    int_param: 100
+    new_param: 20.5
+```
+
+### Loading YAML Parameters in a Launch File
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+import os
+
+def generate_launch_description():
+    package_share_directory = get_package_share_directory('my_python_package')
+    parameter_file = os.path.join(package_share_directory, 'config', 'params.yaml')
+
+    return LaunchDescription([
+        Node(
+            package='my_python_package',
+            executable='configurable_node',
+            name='my_configurable_node',
+            output='screen',
+            parameters=[parameter_file]
+        )
+    ])
+```
+
+## Remapping Topics
+
+**Remapping** allows you to change the name of a topic, service, or action that a node uses without modifying the node's source code. This is very useful for integrating nodes that expect different naming conventions or for running multiple instances of the same node without communication conflicts.
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_python_package',
+            executable='simple_subscriber',
+            name='my_subscriber_remapped',
+            output='screen',
+            remappings=[
+                ('my_topic', '/remapped_topic_name') # Remap 'my_topic' to '/remapped_topic_name'
+            ]
+        )
+    ])
+```
+
+## Conditional Launching
+
+Python launch files can incorporate conditional logic to start or stop nodes based on external factors or arguments.
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration, TextSubstitution
+from launch.conditions import IfCondition
+
+def generate_launch_description():
+    # Declare a launch argument
+    use_debug_arg = DeclareLaunchArgument(
+        'use_debug',
+        default_value=TextSubstitution(text='false'),
+        description='Enable debug node'
+    )
+
+    # Conditionally launch a node
+    debug_node = Node(
+        package='my_python_package',
+        executable='debug_logger',
+        name='debug_node',
+        condition=IfCondition(LaunchConfiguration('use_debug')), # Launch only if use_debug is true
+        output='screen',
+    )
+
+    return LaunchDescription([
+        use_debug_arg,
+        debug_node,
+        # Other nodes always launched
+        Node(
+            package='my_python_package',
+            executable='main_application',
+            name='main_app_node',
+            output='screen',
+        )
+    ])
+```
+
+You can then launch with `ros2 launch my_python_package conditional_launch.py use_debug:=true` to enable the debug node.

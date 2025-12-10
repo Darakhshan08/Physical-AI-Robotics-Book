@@ -1,0 +1,122 @@
+---
+id: environment-setup
+title: Environment Setup
+sidebar_label: Environment Setup
+sidebar_position: 4
+description: Ubuntu 22.04 LTS installation, ROS 2 Humble installation, Gazebo Harmonic setup, NVIDIA Isaac Sim (Omniverse) installation, Python venv and dependencies, VS Code configuration, Verification commands.
+keywords: [environment-setup, ubuntu, ros2, gazebo, isaac-sim, python, vscode]
+---
+
+# Environment Setup
+
+A robust development environment is crucial for Physical AI and Humanoid Robotics. This chapter guides you through setting up a comprehensive environment on Ubuntu 22.04 LTS, including ROS 2 Humble, Gazebo, NVIDIA Isaac Sim, Python dependencies, and VS Code.
+
+## 1. Ubuntu 22.04 LTS Installation
+
+We assume you have a fresh installation of **Ubuntu 22.04 LTS**. If not, please follow the official Ubuntu installation guide for your system. Ensure you allocate sufficient disk space (at least 50GB) and RAM (16GB recommended, 8GB minimum).
+
+## 2. ROS 2 Humble Installation
+
+ROS 2 Humble Hawksbill is the Long Term Support (LTS) release compatible with Ubuntu 22.04.
+
+```bash
+# Set locale
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Setup Sources
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+
+sudo apt update && sudo apt install curl
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Install ROS 2 packages
+sudo apt update
+sudo apt upgrade
+sudo apt install ros-humble-desktop
+
+# Environment setup
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+## 3. Gazebo Harmonic Setup
+
+Gazebo is a powerful 3D robot simulator. We will use Gazebo Harmonic, which is the default for ROS 2 Humble.
+
+```bash
+# Install Gazebo Harmonic
+sudo apt install ros-humble-gazebo-ros-pkgs
+
+# Verify installation (optional)
+gazebo --version
+```
+
+## 4. NVIDIA Isaac Sim (Omniverse) Installation
+
+NVIDIA Isaac Sim is a scalable robotics simulation application and synthetic data generation tool. It requires a powerful NVIDIA GPU.
+
+1.  **System Requirements**: Ensure you have a compatible NVIDIA GPU (RTX 30-series or newer recommended) and NVIDIA drivers installed.
+2.  **Download Omniverse Launcher**: Visit the [NVIDIA Omniverse website](https://developer.nvidia.com/omniverse-platform) and download the Omniverse Launcher for Linux.
+3.  **Install Isaac Sim**:
+    *   Open the Omniverse Launcher.
+    *   Go to the "Exchange" tab and search for "Isaac Sim".
+    *   Click "Install" and follow the on-screen instructions.
+    *   Ensure to install the Isaac Sim ROS 2 Bridge extension.
+
+## 5. Python venv and Dependencies
+
+It's good practice to use Python virtual environments for project-specific dependencies.
+
+```bash
+# Install pip and venv if not already present
+sudo apt install python3-pip python3-venv
+
+# Create a virtual environment
+python3 -m venv ~/physical_ai_venv
+
+# Activate the virtual environment
+source ~/physical_ai_venv/bin/activate
+
+# Install common Python packages
+pip install numpy matplotlib scipy transforms3d modern_robotics
+```
+
+Remember to activate your virtual environment in each new terminal session where you plan to run Python code for the book.
+
+## 6. VS Code Configuration
+
+Visual Studio Code is a popular IDE for ROS 2 and Python development.
+
+1.  **Install VS Code**: Download and install VS Code from the [official website](https://code.visualstudio.com/).
+2.  **Install Extensions**: Open VS Code and install the following extensions:
+    *   **Python**: (Microsoft) - For Python language support, debugging.
+    *   **ROS**: (Microsoft) - For ROS message/service definitions, launch file integration.
+    *   **C/C++**: (Microsoft) - For C++ development (if exploring `rclcpp`).
+    *   **YAML**: (Red Hat) - For YAML file syntax highlighting and validation.
+    *   **Markdown All in One**: (Yuya Watanabe) - For enhanced Markdown editing.
+
+## 7. Verification Commands
+
+After setup, verify your environment:
+
+```bash
+# Verify ROS 2 installation
+ros2 run demo_nodes_cpp talker
+
+# In a new terminal:
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_cpp listener
+
+# Verify Python virtual environment
+source ~/physical_ai_venv/bin/activate
+pip list
+
+# Verify Gazebo (optional)
+gazebo
+```
+You should see the talker and listener nodes communicating, your Python packages listed, and the Gazebo GUI launching.

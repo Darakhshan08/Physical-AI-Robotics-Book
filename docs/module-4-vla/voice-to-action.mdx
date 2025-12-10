@@ -1,0 +1,150 @@
+---
+id: voice-to-action
+title: Voice-to-Action with OpenAI Whisper
+sidebar_label: Voice-to-Action
+sidebar_position: 4
+description: Speech recognition overview, Whisper model variants, Local Whisper deployment, Real-time audio streaming, Command parsing, Error handling.
+keywords: [voice-to-action, openai-whisper, speech-recognition, ros2, command-parsing]
+---
+
+# Voice-to-Action with OpenAI Whisper
+
+Enabling robots to understand and respond to human voice commands is a significant step towards natural and intuitive human-robot interaction. OpenAI's Whisper model offers state-of-the-art speech recognition capabilities that can be integrated into a robot's perception pipeline, transforming spoken language into actionable commands. This chapter guides you through using Whisper for a voice-to-action system.
+
+## Speech Recognition Overview
+
+Speech recognition (also known as Automatic Speech Recognition or ASR) is the process of converting spoken words into text. For robotics, this involves:
+1.  **Audio Capture**: Recording sound from microphones.
+2.  **Feature Extraction**: Processing raw audio into features relevant for speech.
+3.  **Acoustic Model**: Mapping acoustic features to phonemes or words.
+4.  **Language Model**: Understanding the sequence of words to form coherent sentences.
+
+Traditional ASR systems often struggled with noise, accents, and diverse vocabularies. Modern deep learning-based models, like Whisper, have significantly improved performance across these challenges.
+
+## Whisper Model Variants
+
+OpenAI Whisper is a general-purpose speech recognition model trained on a large dataset of diverse audio. It is capable of transcribing audio in multiple languages and translating them into English. Whisper comes in several model sizes, offering a trade-off between speed, accuracy, and memory usage:
+
+| Model   | Parameters | Speed (Relative) | VRAM (GB) | Accuracy |
+| :------ | :--------- | :--------------- | :-------- | :------- |
+| `tiny`  | 39M        | 32x              | ~1        | Low      |
+| `base`  | 74M        | 16x              | ~1        | Medium   |
+| `small` | 244M       | 6x               | ~2        | Good     |
+| `medium`| 769M       | 2x               | ~5        | Very Good|
+| `large` | 1550M      | 1x               | ~10       | Excellent|
+
+For robotic applications on edge devices like the Jetson Orin Nano, smaller models (`tiny`, `base`, `small`) might be more suitable due to their lower computational and memory requirements, though at a slight cost to accuracy.
+
+## Local Whisper Deployment
+
+For real-time voice control on a robot, deploying Whisper locally (on the robot's compute unit, e.g., Jetson) is essential to minimize latency and ensure privacy.
+-   **`whisper.cpp`**: A high-performance, C++ port of Whisper that runs efficiently on CPU and even on edge GPUs. It's often preferred for embedded systems.
+-   **`transformers` library**: Hugging Face's `transformers` library provides Python implementations of Whisper, which can be run on GPUs for faster inference.
+
+### Example: Whisper Setup, Audio Handler, Command Parser (Conceptual)
+
+This conceptual Python code outlines a ROS 2 node that uses Whisper to process audio and parse commands.
+
+```python
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from audio_common_msgs.msg import AudioData # Example for audio message
+import numpy as np
+import io
+# import sounddevice as sd # For real-time audio capture
+# import whisper # For local Whisper inference
+
+class VoiceCommandProcessor(Node):
+    def __init__(self):
+        super().__init__('voice_command_processor')
+        self.declare_parameter('whisper_model_size', 'base')
+        self.whisper_model_size = self.get_parameter('whisper_model_size').get_parameter_value().string_value
+        
+        self.audio_subscription = self.create_subscription(
+            AudioData, # Or a custom ROS 2 audio message
+            '/audio/input',
+            self.audio_callback,
+            10
+        )
+        self.command_publisher = self.create_publisher(String, '/robot/voice_command', 10)
+        self.get_logger().info(f"Voice Command Processor started with Whisper model: {self.whisper_model_size}")
+
+        # Load Whisper model (conceptual)
+        # self.whisper_model = whisper.load_model(self.whisper_model_size)
+
+        self.audio_buffer = [] # Buffer for incoming audio chunks
+
+    def audio_callback(self, msg: AudioData):
+        """Callback for incoming audio data."""
+        # Convert audio_common_msgs.msg.AudioData to a format Whisper expects
+        # This typically involves converting bytes to a numpy array (PCM 16-bit, 16kHz)
+        
+        # Example: append to buffer
+        self.audio_buffer.extend(list(msg.data)) 
+        
+        # Process audio if buffer is large enough (e.g., 5 seconds of audio)
+        if len(self.audio_buffer) > (16000 * 5 * 2): # 16kHz * 5s * 2 bytes/sample for 16-bit
+            audio_np = np.frombuffer(bytes(self.audio_buffer), dtype=np.int16).astype(np.float32) / 32768.0
+            self.audio_buffer.clear()
+            self.process_audio_chunk(audio_np)
+
+    def process_audio_chunk(self, audio_data: np.ndarray):
+        """Processes an audio chunk using Whisper."""
+        try:
+            # result = self.whisper_model.transcribe(audio_data) # Conceptual Whisper API call
+            # recognized_text = result["text"]
+            
+            # Placeholder for actual transcription
+            recognized_text = "move forward one meter" # Simulated recognition
+
+            self.get_logger().info(f"Recognized: '{recognized_text}'")
+            self.parse_and_publish_command(recognized_text)
+        except Exception as e:
+            self.get_logger().error(f"Whisper transcription error: {e}")
+
+    def parse_and_publish_command(self, text: str):
+        """Parses recognized text into a robot command and publishes it."""
+        command_msg = String()
+        # Simple keyword parsing (this would be more sophisticated with LLMs later)
+        if "move forward" in text.lower():
+            command_msg.data = "move_forward"
+            self.command_publisher.publish(command_msg)
+            self.get_logger().info(f"Published command: {command_msg.data}")
+        elif "stop" in text.lower():
+            command_msg.data = "stop_robot"
+            self.command_publisher.publish(command_msg)
+            self.get_logger().info(f"Published command: {command_msg.data}")
+        # ... other commands
+
+def main(args=None):
+    rclpy.init(args=args)
+    voice_processor = VoiceCommandProcessor()
+    rclpy.spin(voice_processor)
+    voice_processor.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## Real-time Audio Streaming
+
+For continuous voice control, audio needs to be streamed in real-time to the Whisper model.
+-   **Microphone Setup**: Use a suitable microphone array (e.g., ReSpeaker) connected to the robot's compute unit.
+-   **ROS 2 Audio Nodes**: Develop or use existing ROS 2 nodes (e.g., from `audio_common`) to capture audio from the microphone and publish it as `AudioData` messages.
+-   **Chunk Processing**: Whisper models typically process audio in chunks. The audio handler needs to buffer incoming audio and send it to Whisper at appropriate intervals.
+
+## Command Parsing
+
+Once speech is converted to text, the next step is to parse this text into structured robot commands.
+-   **Keyword Spotting**: Simple method for basic commands ("stop", "go").
+-   **Natural Language Understanding (NLU)**: Use more advanced NLU techniques or even LLMs (covered in the next chapter) to extract intent, entities, and parameters from more complex sentences ("pick up the red cube from the table and place it on the shelf").
+
+## Error Handling
+
+Robust error handling is crucial for a voice-to-action system:
+-   **Recognition Errors**: Handle cases where Whisper fails to transcribe speech accurately (e.g., due to noise, unclear speech).
+-   **Parsing Errors**: What if the recognized text doesn't match any known command?
+-   **Command Execution Failures**: What if the robot fails to execute a valid command?
+-   **Feedback**: Provide audio or visual feedback to the user about recognized commands and execution status.

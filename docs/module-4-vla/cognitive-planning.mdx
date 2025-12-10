@@ -1,0 +1,189 @@
+# Cognitive Planning with LLMs
+
+Large Language Models (LLMs) are demonstrating remarkable abilities in understanding, reasoning, and generating human-like text. This cognitive prowess can be harnessed to enable robots to perform high-level planning, interpret complex commands, and even adapt to novel situations, effectively giving robots a "cognitive brain." This chapter explores how LLMs can be used for cognitive planning in robotics.
+
+## LLMs as Robot Planners
+
+Traditionally, robot planning has relied on symbolic AI methods or explicit state-space search. LLMs offer a new paradigm by:
+-   **Interpreting Natural Language Goals**: Translating high-level human instructions (e.g., "make me a cup of coffee") into a sequence of robot-executable actions.
+-   **Task Decomposition**: Breaking down complex tasks into smaller, manageable sub-tasks.
+-   **Generating Action Sequences**: Producing a plan as a sequence of discrete robot actions (action primitives).
+-   **Leveraging World Knowledge**: Using their vast pre-trained knowledge to infer common-sense facts about objects and environments.
+
+## Prompt Engineering for Robotics
+
+**Prompt engineering** is key to effectively utilizing LLMs for robot planning. It involves crafting precise and informative prompts that guide the LLM to generate desired robot behaviors. A good prompt for robotics typically includes:
+-   **Robot Capabilities**: Informing the LLM about the robot's available actions (action primitives).
+-   **Environment Context**: Describing the current state of the environment (e.g., "robot is in the kitchen," "red block is on the table").
+-   **Goal**: The desired outcome in natural language.
+-   **Constraints/Safety**: Emphasizing safety protocols or specific limitations.
+-   **Format Instructions**: Specifying the desired output format for the action plan (e.g., a list of Python function calls).
+
+## Task Decomposition
+
+LLMs are excellent at **task decomposition**, taking a high-level goal and breaking it down into a logical sequence of sub-goals.
+
+### Example: Task Decomposition
+
+**Human Goal**: "Clean up the desk."
+
+**LLM Decomposition (Conceptual)**:
+1.  Identify objects on the desk.
+2.  Pick up each object.
+3.  Determine correct storage location for each object.
+4.  Move to storage location.
+5.  Place object.
+6.  Repeat until desk is clean.
+
+## Action Primitive Mapping
+
+**Action primitives** are the low-level, robot-executable actions that the robot's control system can directly perform (e.g., `move_to_pose(x, y, z)`, `grasp_object(object_id)`, `open_gripper()`). The LLM's generated plan needs to be mapped to these primitives.
+
+### Example: LLM Planner Class, Prompt Templates, Action Mapper (Conceptual)
+
+This conceptual Python code demonstrates an LLM planner and an action mapper.
+
+```python
+# Conceptual Python code for LLM planner and action mapper
+
+import openai # For OpenAI API calls
+from std_msgs.msg import String # To publish commands
+from geometry_msgs.msg import Pose # To publish poses
+import json
+
+class LLMPlanner:
+    def __init__(self, openai_api_key):
+        openai.api_key = openai_api_key
+        self.action_primitives = {
+            "move_to_pose": {"params": ["x", "y", "z", "qx", "qy", "qz", "qw"]},
+            "grasp_object": {"params": ["object_id"]},
+            "release_object": {"params": []},
+            "open_gripper": {"params": []},
+            "close_gripper": {"params": []},
+        }
+
+        self.system_prompt_template = """
+        You are a helpful robot assistant. Your goal is to generate a sequence of robot actions to achieve a human-given goal.
+        Available actions: {action_primitives_list}
+
+        Environment Context: {environment_context}
+        Robot State: {robot_state}
+
+        Your output MUST be a JSON list of action calls, like:
+        [
+            {{"action": "move_to_pose", "params": {{"x": 1.0, "y": 0.5, "z": 0.2, "qx":0, "qy":0, "qz":0, "qw":1}}}},
+            {{"action": "grasp_object", "params": {{"object_id": "red_block"}}}}
+        ]
+        """
+
+    def generate_plan(self, human_goal: str, env_context: str, robot_state: str):
+        actions_list = ", ".join([f"{name}({', '.join(params)})" for name, data in self.action_primitives.items() for params in [data['params']]])
+        
+        user_prompt = f"Human Goal: {human_goal}"
+        
+        full_prompt = self.system_prompt_template.format(
+            action_primitives_list=actions_list,
+            environment_context=env_context,
+            robot_state=robot_state
+        ) + "\n" + user_prompt
+
+        try:
+            # conceptual_response = openai.chat.completions.create(
+            #     model="gpt-4",
+            #     messages=[
+            #         {"role": "system", "content": full_prompt},
+            #         {"role": "user", "content": user_prompt}
+            #     ],
+            #     temperature=0.0
+            # )
+            # plan_json_string = conceptual_response.choices[0].message.content
+
+            # Placeholder for actual LLM call
+            plan_json_string = """
+            [
+                {"action": "move_to_pose", "params": {"x": 0.5, "y": 0.1, "z": 0.3, "qx":0, "qy":0, "qz":0, "qw":1}},
+                {"action": "grasp_object", "params": {"object_id": "red_block"}},
+                {"action": "move_to_pose", "params": {"x": -0.2, "y": 0.8, "z": 0.4, "qx":0, "qy":0, "qz":0, "qw":1}},
+                {"action": "release_object", "params": {}}
+            ]
+            """
+            return json.loads(plan_json_string)
+        except Exception as e:
+            print(f"Error generating plan: {e}")
+            return None
+
+class ActionMapper:
+    def __init__(self, node: rclpy.node.Node):
+        self.node = node
+        self.publishers = {
+            "move_to_pose": self.node.create_publisher(Pose, '/robot/move_to_pose', 10),
+            "grasp_object": self.node.create_publisher(String, '/robot/grasp_object', 10),
+            "release_object": self.node.create_publisher(String, '/robot/release_object', 10),
+            "open_gripper": self.node.create_publisher(String, '/robot/open_gripper', 10),
+            "close_gripper": self.node.create_publisher(String, '/robot/close_gripper', 10),
+        }
+
+    def execute_action(self, action_data: dict):
+        action_name = action_data["action"]
+        params = action_data["params"]
+        
+        if action_name == "move_to_pose":
+            pose_msg = Pose()
+            pose_msg.position.x = params["x"]
+            pose_msg.position.y = params["y"]
+            pose_msg.position.z = params["z"]
+            pose_msg.orientation.x = params.get("qx", 0.0)
+            pose_msg.orientation.y = params.get("qy", 0.0)
+            pose_msg.orientation.z = params.get("qz", 0.0)
+            pose_msg.orientation.w = params.get("qw", 1.0)
+            self.publishers["move_to_pose"].publish(pose_msg)
+            self.node.get_logger().info(f"Published move_to_pose: {params}")
+        elif action_name == "grasp_object":
+            object_id_msg = String()
+            object_id_msg.data = params["object_id"]
+            self.publishers["grasp_object"].publish(object_id_msg)
+            self.node.get_logger().info(f"Published grasp_object: {params['object_id']}")
+        # ... map other actions
+        else:
+            self.node.get_logger().warn(f"Unknown action: {action_name}")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = rclpy.node.Node('llm_planner_node')
+    planner = LLMPlanner("YOUR_OPENAI_API_KEY") # Replace with your API key
+    mapper = ActionMapper(node)
+
+    env_context = "The desk has a red block. The shelf is to the left."
+    robot_state = "Robot is standing at home position."
+    human_goal = "Pick up the red block and place it on the shelf."
+
+    plan = planner.generate_plan(human_goal, env_context, robot_state)
+    if plan:
+        node.get_logger().info(f"Generated Plan: {plan}")
+        for action in plan:
+            mapper.execute_action(action)
+            # In a real system, you would wait for action completion
+            # before executing the next action in the plan.
+            # time.sleep(1.0) # Simulate action duration
+    
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+## Plan Validation and Safety
+
+Plans generated by LLMs are not inherently safe or executable. Critical validation steps are required:
+-   **Syntactic Validation**: Ensure the generated plan adheres to the defined action primitive format (e.g., correct JSON structure, valid action names).
+-   **Semantic Validation**: Check if the plan is physically feasible and safe (e.g., does not involve collisions, is within joint limits, maintains balance). This often requires a "safety layer" or a simulator.
+-   **Execution Monitoring**: During execution, continuously monitor the robot's state and interrupt the plan if unsafe conditions arise.
+
+## Handling Ambiguous Commands
+
+LLMs can also help in handling ambiguous commands by:
+-   **Asking Clarifying Questions**: The LLM can be prompted to ask follow-up questions if a command is vague (e.g., "pick up block" → "Which block?").
+-   **Generating Options**: Propose multiple interpretations and ask the human to choose.
+-   **Leveraging Context**: Use visual (e.g., object detection results) or auditory (e.g., direction of speech) context to resolve ambiguities.

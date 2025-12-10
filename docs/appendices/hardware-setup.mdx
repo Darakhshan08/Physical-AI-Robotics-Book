@@ -1,0 +1,180 @@
+---
+id: hardware-setup
+title: Hardware Setup Guides
+sidebar_label: Hardware Setup
+sidebar_position: 1
+description: Jetson Orin Nano complete setup, Intel RealSense D435i configuration, ReSpeaker microphone setup, Unitree Go2/G1 SDK, Network configuration.
+keywords: [hardware, setup, jetson-orin-nano, realsense, unitree, ros2]
+---
+
+# Hardware Setup Guides
+
+This appendix provides detailed setup guides for the recommended hardware components, crucial for hands-on experience with the concepts discussed in this book. While much of the development can be done in simulation, deploying to and interacting with physical hardware provides invaluable learning.
+
+## Jetson Orin Nano Complete Setup
+
+The NVIDIA Jetson Orin Nano is an ideal edge AI platform for deploying and running ROS 2 applications directly on your robot.
+
+### 1. Flashing the OS
+
+1.  **Download JetPack SDK Manager**: Download the NVIDIA SDK Manager from the [NVIDIA Developer website](https://developer.nvidia.com/embedded/jetpack).
+2.  **Install SDK Manager**: Follow the installation instructions for your host PC (Ubuntu x86).
+3.  **Flash Jetson**:
+    *   Connect your Jetson Orin Nano Developer Kit to your host PC via USB-C (for power and flashing) and a standard USB cable (for data).
+    *   Put the Jetson into Recovery Mode (usually by holding down the Recovery button, powering on, and releasing).
+    *   Launch SDK Manager.
+    *   Log in with your NVIDIA Developer account.
+    *   Select "Jetson Orin Nano Developer Kit" and the latest JetPack version.
+    *   Follow the on-screen instructions to download and flash the OS onto your Jetson. This includes the Linux OS, CUDA, cuDNN, TensorRT, and other NVIDIA libraries.
+
+### 2. Initial Configuration
+
+After flashing, connect the Jetson to a monitor, keyboard, and mouse for initial setup:
+1.  **Complete Ubuntu Setup**: Follow the on-screen prompts to set up your username, password, and basic settings.
+2.  **Update System**:
+    ```bash
+    sudo apt update
+    sudo apt upgrade -y
+    ```
+3.  **Install Basic Tools**:
+    ```bash
+    sudo apt install -y build-essential git cmake
+    ```
+
+### 3. ROS 2 Humble Installation
+
+Install ROS 2 Humble (as described in Chapter 0.4) directly on the Jetson.
+
+```bash
+# Set locale
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Setup Sources
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+
+sudo apt update && sudo apt install curl
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Install ROS 2 packages
+sudo apt update
+sudo apt upgrade
+sudo apt install ros-humble-desktop-full # Use desktop-full for Jetson
+```
+
+## Intel RealSense D435i Configuration
+
+The Intel RealSense D435i is a popular depth camera that provides RGB and depth images, along with an IMU.
+
+### 1. Install RealSense SDK (librealsense)
+
+```bash
+# Register the Intel RealSense repository
+sudo mkdir -p /etc/apt/keyrings
+curl -sSf https://librealsense.intel.com/Intel.RealSense.prf.tmp | sudo tee /etc/apt/keyrings/librealsense.asc > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/librealsense.asc] https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/librealsense.list
+
+sudo apt update
+sudo apt install -y librealsense2-dkms librealsense2-utils librealsense2-dev librealsense2-gl
+
+# Verify installation
+realsense-viewer
+```
+You should see the RealSense Viewer application launch and display camera streams.
+
+### 2. Install ROS 2 RealSense Package
+
+```bash
+# Create a ROS 2 workspace if you don't have one
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+
+# Clone the ROS 2 RealSense wrapper
+git clone https://github.com/IntelRealSense/realsense-ros.git -b ros2-development
+
+# Install dependencies (might take a while)
+rosdep install -i --from-path src --rosdistro humble -y
+
+# Build the package
+cd ~/ros2_ws
+colcon build --symlink-install --packages-up-to realsense2_camera
+
+# Source your workspace
+source install/setup.bash
+```
+### 3. Launch RealSense Node
+
+```bash
+ros2 launch realsense2_camera rs_launch.py
+```
+This should launch the RealSense ROS 2 node, publishing RGB, depth, and IMU data to various topics.
+
+## ReSpeaker Microphone Setup
+
+The ReSpeaker microphone array is excellent for robotic voice interaction due to its multiple microphones and acoustic processing capabilities.
+
+### 1. Install Dependencies
+
+```bash
+sudo apt install -y alsa-utils libasound2-plugins
+```
+
+### 2. Configure ALSA
+
+You might need to create or modify `/etc/asound.conf` to properly route audio if you have multiple sound cards. For simple setups, ensure your ReSpeaker is recognized:
+```bash
+arecord -l
+```
+Look for your ReSpeaker device.
+
+### 3. Install ROS 2 Audio Common (Optional, or use custom node)
+
+You can use the `audio_common` ROS 2 package or implement your own ROS 2 node to publish audio data from the ReSpeaker.
+
+```bash
+# Clone audio_common
+cd ~/ros2_ws/src
+git clone https://github.com/ros-drivers/audio_common.git -b ros2
+
+# Build and source
+cd ~/ros2_ws
+colcon build --symlink-install --packages-up-to audio_capture
+source install/setup.bash
+```
+
+### 4. Launch Audio Capture
+
+```bash
+ros2 run audio_capture audio_capture_node
+```
+This node will capture audio and publish it to a ROS 2 topic (e.g., `/audio`).
+
+## Unitree Go2/G1 SDK
+
+Interfacing with Unitree robots (Go2 or G1) typically involves using their proprietary SDK to send commands and receive telemetry.
+
+### 1. Download SDK
+
+Obtain the SDK from Unitree Robotics. This usually comes with example code and libraries.
+
+### 2. Build and Integrate
+
+Integrate the SDK into a ROS 2 package:
+-   Develop a ROS 2 node that wraps the Unitree SDK, translating ROS 2 commands (e.g., `geometry_msgs/Twist` for velocity, custom joint command messages) into SDK calls.
+-   Translate SDK telemetry (e.g., joint states, IMU data) into standard ROS 2 messages for other nodes to consume.
+
+## Network Configuration
+
+Reliable network communication is fundamental for multi-component robotic systems.
+-   **Static IP Addresses**: Assign static IP addresses to your Jetson, robot, and workstation to ensure consistent communication.
+-   **Wireless Setup**: Configure Wi-Fi on the Jetson if using wireless communication.
+-   **ROS_DOMAIN_ID**: Ensure all ROS 2 devices are on the same ROS_DOMAIN_ID to facilitate discovery.
+    ```bash
+    export ROS_DOMAIN_ID=0 # Or any other unique integer
+    echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
+    ```
+-   **Firewall**: Configure firewalls to allow ROS 2 communication (typically UDP ports 7400-7500 and TCP ports for discovery).

@@ -1,0 +1,115 @@
+---
+id: course-overview
+title: Course Overview & Hardware Requirements
+sidebar_label: Course Overview
+sidebar_position: 3
+description: 13-week course breakdown, Hardware Tier 1, 2, 3 requirements, Cloud alternative, pricing tables.
+keywords: [course-overview, hardware-requirements, jetson-orin-nano, realsense, unitree, aws]
+---
+
+# Course Overview & Hardware Requirements
+
+This book is structured as a comprehensive 13-week course, designed to progressively build your understanding and skills in Physical AI and Humanoid Robotics. To facilitate hands-on learning, various hardware tiers and cloud alternatives are discussed, allowing you to choose the setup that best fits your budget and aspirations.
+
+## 13-Week Course Breakdown
+
+The course is divided into modules, each focusing on key aspects of Physical AI. Each week will typically involve reading chapters, working through code examples, and engaging with simulation exercises.
+
+**Part 0: Introduction (Weeks 1-2)**
+- Chapter 0.1: What is Physical AI?
+- Chapter 0.2: Why Humanoid Robots?
+- Chapter 0.3: Course Overview & Hardware Requirements
+- Chapter 0.4: Environment Setup
+
+**Part 1: The Robotic Nervous System - ROS 2 (Weeks 3-5)**
+- Chapter 1.1: ROS 2 Architecture & Core Concepts
+- Chapter 1.2: Nodes, Topics, and Services
+- Chapter 1.3: Building ROS 2 Packages with Python (rclpy)
+- Chapter 1.4: Understanding URDF for Humanoids
+- Chapter 1.5: Launch Files and Parameter Management
+- Chapter 1.6: Bridging Python Agents to ROS Controllers
+
+**Part 2: The Digital Twin - Gazebo & Unity (Weeks 6-7)**
+- Chapter 2.1: Gazebo Simulation Environment Setup
+- Chapter 2.2: URDF and SDF Robot Description Formats
+- Chapter 2.3: Simulating Physics, Gravity, and Collisions
+- Chapter 2.4: Sensor Simulation (LiDAR, Depth Cameras, IMUs)
+- Chapter 2.5: High-Fidelity Rendering in Unity
+- Chapter 2.6: Human-Robot Interaction in Simulation
+
+**Part 3: The AI-Robot Brain - NVIDIA Isaac (Weeks 8-10)**
+- Chapter 3.1: NVIDIA Isaac SDK and Isaac Sim Overview
+- Chapter 3.2: Photorealistic Simulation & Synthetic Data Generation
+- Chapter 3.3: Isaac ROS: Hardware-Accelerated VSLAM
+- Chapter 3.4: Nav2: Path Planning for Bipedal Movement
+- Chapter 3.5: Reinforcement Learning for Robot Control
+- Chapter 3.6: Sim-to-Real Transfer Techniques
+
+**Part 4: Vision-Language-Action - VLA (Weeks 11-13)**
+- Chapter 4.1: Humanoid Robot Kinematics and Dynamics
+- Chapter 4.2: Bipedal Locomotion and Balance Control
+- Chapter 4.3: Manipulation and Grasping with Humanoid Hands
+- Chapter 4.4: Voice-to-Action with OpenAI Whisper
+- Chapter 4.5: Cognitive Planning with LLMs
+- Chapter 4.6: Multi-modal Interaction (Speech, Gesture, Vision)
+- Chapter 4.7: Integrating GPT Models for Conversational Robotics
+
+**Part 5: Capstone Project (Final Integration)**
+- Chapter 5.1: Project Overview
+- Chapter 5.2: System Architecture Design
+- Chapter 5.3: Voice Command Processing Pipeline
+- Chapter 5.4: Path Planning and Navigation
+- Chapter 5.5: Object Detection and Manipulation
+- Chapter 5.6: Integration and Testing
+- Chapter 5.7: Deployment and Demo
+
+## Hardware Requirements
+
+To follow along with the practical aspects of this book, we recommend hardware setups across different tiers. Simulation is often the starting point, but physical hardware allows for invaluable real-world experience.
+
+### Hardware Tier 1: Workstation (High Performance for Simulation & Development)
+
+This tier provides the computing power necessary for smooth simulation, AI model training, and efficient development.
+
+| Component         | Recommendation                               | Estimated Cost |
+| :---------------- | :------------------------------------------- | :------------- |
+| **CPU**           | Intel i7/Ryzen 7 (10th Gen+ / 3000 Series+)  | $300 - $500    |
+| **GPU**           | NVIDIA RTX 4070 Ti+ (12GB VRAM+)             | $800 - $1200   |
+| **RAM**           | 64GB DDR4/DDR5                               | $150 - $300    |
+| **Storage**       | 1TB NVMe SSD                                 | $80 - $150     |
+| **OS**            | Ubuntu 22.04 LTS                             | Free           |
+| **Total (Est.)**  |                                              | **$1330 - $2150+** |
+
+### Hardware Tier 2: Edge Kit (On-Robot AI Processing)
+
+This portable kit is designed for deploying AI models directly onto a robot or for developing embedded AI applications.
+
+| Component           | Recommendation              | Estimated Cost |
+| :------------------ | :-------------------------- | :------------- |
+| **Compute Module**  | Jetson Orin Nano (4GB/8GB)  | $249 - $499    |
+| **Depth Camera**    | Intel RealSense D435i       | $349           |
+| **Microphone Array**| ReSpeaker 4-Mic Array       | $25            |
+| **Total (Est.)**    |                             | **$623 - $873** |
+
+### Hardware Tier 3: Robots (Physical Humanoid Platforms)
+
+For the ultimate hands-on experience, interacting with physical humanoid robots provides the most direct application of the book's concepts.
+
+| Robot Platform      | Recommendation                     | Estimated Cost |
+| :------------------ | :--------------------------------- | :------------- |
+| **Entry-Level Humanoid** | Hiwonder Humanoid Robot (e.g., Tony Pi) | $600 - $1000   |
+| **Advanced Bipedal** | Unitree Go2 Education Version        | $3000 - $5000  |
+| **Research Grade**  | Unitree G1 Humanoid Robot          | $16000+        |
+| **Total (Est.)**    |                                    | **$600 - $16000+** |
+
+## Cloud Alternative: AWS RoboMaker / AWS g5.2xlarge
+
+If physical hardware is not immediately accessible, cloud computing offers a powerful alternative for simulation and training.
+
+| Service / Instance | Description                                         | Estimated Cost (per quarter) |
+| :----------------- | :-------------------------------------------------- | :--------------------------- |
+| **AWS g5.2xlarge** | EC2 instance with NVIDIA A10G GPU, for Isaac Sim    | ~$205 - $350                 |
+| **AWS RoboMaker**  | Managed service for robotics simulation and development | Variable, usage-based        |
+| **Total (Est.)**   |                                                     | **$205+**                    |
+
+*Note: Cloud costs are estimates and can vary significantly based on usage, region, and specific service configurations. Always monitor your cloud spending.*

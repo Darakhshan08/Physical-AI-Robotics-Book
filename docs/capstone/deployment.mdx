@@ -1,0 +1,154 @@
+---
+id: capstone-deployment
+title: Deployment and Demo
+sidebar_label: Deployment & Demo
+sidebar_position: 7
+description: Sim-to-real checklist, Jetson deployment, Real robot config, Demo preparation, Recording and documentation, Future improvements.
+keywords: [capstone, deployment, demo, sim-to-real, jetson, robotics]
+---
+
+# Deployment and Demo
+
+The final stage of the Capstone Project is deploying your autonomous humanoid robot system and demonstrating its capabilities. This chapter focuses on the transition from simulation to real hardware (if applicable), configuring for real robots, preparing for a compelling demonstration, and outlining avenues for future improvements.
+
+## Sim-to-Real Checklist
+
+Before attempting to deploy your system to a physical robot, ensure you have addressed the **sim-to-real gap** by meticulously checking the following:
+
+-   **Sensor Accuracy**: Are real sensor characteristics (noise, latency, field of view) adequately modeled in simulation?
+-   **Actuator Control**: Do real motors and joints behave as expected from simulation (e.g., torques, velocities, joint limits)?
+-   **Calibration**: Have all sensors and robot kinematics been accurately calibrated on the physical robot?
+-   **Coordinate Frames**: All `tf2` transforms are correctly configured for the real robot.
+-   **Environment**: Does the real-world environment match the simulated environment's conditions (lighting, objects)?
+-   **Safety Protocols**: Are all emergency stop mechanisms functional and tested?
+
+## Jetson Deployment
+
+If your humanoid robot's compute unit is an NVIDIA Jetson (e.g., Orin Nano), the deployment process involves:
+-   **Cross-compilation**: If using C++ ROS 2 packages, ensuring they are compiled for the ARM architecture of the Jetson.
+-   **Docker/Containers**: Utilizing Docker containers for consistent deployment and managing dependencies. This is especially useful for Isaac ROS packages.
+-   **ROS 2 Setup**: Installing ROS 2 Humble on the Jetson.
+-   **Network Configuration**: Ensuring reliable network communication (Wi-Fi or Ethernet) between the Jetson, any external workstations, and the robot's controllers.
+-   **Model Export**: Exporting trained AI models (e.g., for object detection, RL policies) to optimized formats like ONNX or TensorRT for efficient inference on the Jetson's GPU.
+
+### Example: Deployment Scripts (Conceptual)
+
+This conceptual example shows a bash script for deploying ROS 2 packages to a Jetson.
+
+```bash
+#!/bin/bash
+# deploy_to_jetson.sh - Conceptual script for deploying ROS 2 workspace to Jetson
+
+JETSON_USER="nvidia"
+JETSON_IP="192.168.1.100" # Replace with your Jetson's IP
+REMOTE_WORKSPACE="/home/${JETSON_USER}/ros2_ws"
+LOCAL_WORKSPACE="~/ros2_ws" # Your local workspace
+
+echo "--- Building local ROS 2 workspace ---"
+cd "${LOCAL_WORKSPACE}"
+colcon build --symlink-install # Build with symlinks for easier debugging
+
+echo "--- Copying workspace to Jetson ---"
+# Exclude build and log directories to save transfer time
+rsync -avz --exclude 'build/' --exclude 'log/' --exclude 'install/' \
+    "${LOCAL_WORKSPACE}/" "${JETSON_USER}@${JETSON_IP}:${REMOTE_WORKSPACE}/"
+
+echo "--- Copying install folder separately ---"
+# Install folder contains compiled binaries and setup files, needs to be copied after source
+rsync -avz "${LOCAL_WORKSPACE}/install/" "${JETSON_USER}@${JETSON_IP}:${REMOTE_WORKSPACE}/install/"
+
+echo "--- Sourcing environment on Jetson and building ---"
+ssh "${JETSON_USER}@${JETSON_IP}" << EOF
+    source /opt/ros/humble/setup.bash
+    source "${REMOTE_WORKSPACE}/install/setup.bash"
+    echo "ROS 2 environment and workspace sourced on Jetson."
+    # Optionally, run a basic test
+    # ros2 run my_robot_package my_node
+EOF
+
+echo "Deployment to Jetson complete!"
+```
+
+## Real Robot Configuration
+
+Connecting to a physical humanoid robot (e.g., Unitree Go2/G1) involves:
+-   **SDK Integration**: Using the robot's SDK (Software Development Kit) to communicate with its low-level controllers. This SDK often provides APIs for reading sensor data and sending joint commands.
+-   **ROS 2 Bridge**: Developing or using an existing ROS 2 bridge to interface the robot's SDK with ROS 2. This allows your high-level ROS 2 nodes (navigation, manipulation, HRI) to control the physical robot.
+-   **Calibration**: Precisely calibrating the robot's sensors and actuators is crucial for accurate performance.
+
+### Example: Demo Launch File (Conceptual)
+
+This conceptual launch file would start the full Capstone system on a real robot.
+
+```python
+import os
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+from ament_index_python.packages import get_package_share_directory
+
+def generate_launch_description():
+    # Declare arguments
+    robot_model = DeclareLaunchArgument('robot_model', default_value='unitree_go2',
+                                        description='Robot model to load')
+    
+    # Path to your robot description package
+    robot_description_pkg = get_package_share_directory('unitree_ros2') # Example Unitree package
+    
+    # Launch real robot interface (SDK bridge)
+    robot_interface_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(robot_description_pkg, 'launch', 'unitree_interface.launch.py')
+        ),
+        launch_arguments={'robot_model': LaunchConfiguration('robot_model')}.items()
+    )
+    
+    # Launch Nav2 stack for real robot
+    navigation_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('my_robot_navigation'), 'launch', 'navigation_bringup.launch.py')
+        ),
+        launch_arguments={'use_sim_time': 'false'}.items() # Use real time
+    )
+
+    # Launch HRI and AI agent stack
+    hri_ai_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('my_robot_hri'), 'launch', 'hri_agent_stack.launch.py')
+        )
+    )
+
+    return LaunchDescription([
+        robot_model,
+        robot_interface_launch,
+        navigation_launch,
+        hri_ai_launch,
+    ])
+```
+
+## Demo Preparation
+
+A successful demonstration requires careful preparation:
+-   **Define Scenario**: Clearly outline the task the robot will perform.
+-   **Test Environment**: Prepare the physical space (clear obstacles, place objects).
+-   **Error Recovery**: Be prepared for potential failures and have a plan for recovery.
+-   **User Interaction**: Plan how the human will interact with the robot (voice commands, gestures).
+-   **Backup Plan**: Always have a backup plan (e.g., show a video of simulation if real robot fails).
+
+## Recording and Documentation
+
+After a successful demo, record and document your results:
+-   **Video Recording**: Capture the robot's performance.
+-   **Performance Metrics**: Collect and analyze relevant data (e.g., task completion time, accuracy).
+-   **Project Report**: Document your system design, implementation details, challenges faced, and lessons learned.
+-   **Code Repository**: Ensure your code is well-commented and pushed to a version-controlled repository (e.g., GitHub).
+
+## Future Improvements
+
+No project is ever truly "finished." Consider future improvements:
+-   **Robustness**: Improve handling of complex, dynamic environments.
+-   **Generality**: Make the robot adaptable to a wider range of tasks.
+-   **Learning**: Incorporate continuous learning from new experiences.
+-   **Safety**: Enhance safety features and human-robot collaboration.
+-   **Hardware Upgrades**: Integrate with newer or more advanced robotic hardware.

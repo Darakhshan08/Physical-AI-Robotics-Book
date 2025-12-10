@@ -1,0 +1,87 @@
+--- 
+id: cloud-setup
+title: Cloud Lab Setup
+sidebar_label: Cloud Lab Setup
+sidebar_position: 2
+description: AWS RoboMaker setup, NVIDIA Omniverse Cloud, Cost optimization, Remote development workflow.
+keywords: [cloud, aws, robomaker, omniverse-cloud, remote-development]
+---
+
+# Cloud Lab Setup
+
+Cloud computing offers a powerful and flexible alternative to local hardware for robotics simulation and development, especially for tasks requiring significant computational resources like large-scale simulations or AI model training. This appendix guides you through setting up a cloud-based robotics lab, focusing on AWS RoboMaker and NVIDIA Omniverse Cloud.
+
+## AWS RoboMaker Setup
+
+**AWS RoboMaker** is a cloud-based service that makes it easy for developers to develop, test, and deploy robotics applications at scale. It provides:
+-   **Development Environments**: Cloud-based IDEs with pre-configured ROS 2 environments.
+-   **Simulation**: Run Gazebo simulations in the cloud, allowing for parallel execution of many simulations.
+-   **Fleet Management**: Deploy and manage robotic applications on fleets of physical robots.
+
+### Key Features:
+-   **ROS 2 Support**: Deep integration with ROS 2, allowing you to use your existing ROS 2 packages.
+-   **Scalable Simulation**: Run multiple simulations concurrently, accelerating testing and validation.
+-   **CodeBuild Integration**: Seamlessly build your ROS 2 packages in the cloud.
+
+### Example: AWS CLI Commands for Cloud Setup (Conceptual)
+
+This conceptual example shows how to interact with AWS RoboMaker using the AWS CLI.
+
+```bash
+#!/bin/bash
+# aws_robomaker_setup.sh - Conceptual script for AWS RoboMaker setup
+
+# 1. Configure AWS CLI (ensure you have AWS credentials configured)
+# aws configure
+
+# 2. Create a RoboMaker Development Environment
+echo "--- Creating RoboMaker Development Environment ---"
+aws robomaker create-simulation-application-package \
+    --name "my-robot-app" \
+    --environment "ROS2" \
+    --robot-architecture "X86_64" \
+    --sources "file://my-robot-app-source.zip" # Your ROS 2 workspace zipped
+
+# 3. Create a Simulation Job (conceptual)
+echo "--- Starting RoboMaker Simulation Job ---"
+aws robomaker create-simulation-job \
+    --simulation-application-arns "arn:aws:robomaker:REGION:ACCOUNT_ID:simulation-application/my-robot-app/1" \
+    --robot-applications "arn:aws:robomaker:REGION:ACCOUNT_ID:robot-application/my-robot-app/1" \
+    --output-location "s3://my-robomaker-output-bucket/" \
+    --max-run-time-in-seconds 3600 # 1 hour
+    # ... more simulation job configurations
+
+# 4. List running simulation jobs
+echo "--- Listing RoboMaker Simulation Jobs ---"
+aws robomaker list-simulation-jobs --status "Running"
+
+echo "AWS RoboMaker setup commands demonstrated."
+```
+*Note: This is a simplified conceptual script. Actual RoboMaker setup involves more detailed configurations for application packages, robot applications, and simulation job parameters.*
+
+## NVIDIA Omniverse Cloud
+
+**NVIDIA Omniverse Cloud** extends the Omniverse platform (on which Isaac Sim is built) to the cloud, enabling:
+-   **Cloud-based Simulation**: Run Isaac Sim simulations in the cloud, accessible from anywhere.
+-   **Collaborative Development**: Teams can collaborate on 3D scenes and robotic simulations in real-time.
+-   **Scalable Synthetic Data Generation**: Leverage cloud resources for massive-scale synthetic data generation.
+
+Omniverse Cloud allows you to stream complex 3D scenes and applications to remote users, making high-fidelity robotics simulation accessible without needing powerful local hardware.
+
+## Cost Optimization
+
+Running simulations and AI training in the cloud can incur significant costs. Strategies for cost optimization include:
+-   **Spot Instances**: Utilize AWS Spot Instances for fault-tolerant workloads to save costs.
+-   **On-demand Instances**: Use for critical, non-interruptible tasks.
+-   **Resource Tagging**: Tag all your cloud resources to track and attribute costs effectively.
+-   **Monitoring and Alerts**: Set up AWS Cost Explorer and CloudWatch alarms to monitor spending and prevent unexpected bills.
+-   **Shut Down Unused Resources**: Always terminate instances and delete resources when not in use.
+-   **Optimized Resource Selection**: Choose the right instance types (e.g., GPU-optimized for Isaac Sim) to maximize performance per dollar.
+
+## Remote Development Workflow
+
+Cloud labs facilitate a remote development workflow, allowing you to work from anywhere with an internet connection.
+-   **SSH Access**: Secure Shell (SSH) is used to connect to your cloud instances.
+-   **VS Code Remote Development**: VS Code's Remote Development extensions allow you to develop directly on a remote cloud instance, providing a seamless local-like experience.
+-   **Version Control**: Integrate with Git (e.g., GitHub, GitLab) for managing your code and collaborating with team members.
+-   **Cloud Storage**: Utilize services like Amazon S3 for storing large datasets and simulation results.

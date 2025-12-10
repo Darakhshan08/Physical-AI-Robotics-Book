@@ -1,0 +1,207 @@
+---
+id: sensor-simulation
+title: Sensor Simulation (LiDAR, Depth Cameras, IMUs)
+sidebar_label: Sensor Simulation
+sidebar_position: 4
+description: Sensor plugins in Gazebo, LiDAR setup and configuration, Depth camera (RealSense) simulation, IMU implementation, Publishing to ROS 2 topics, Noise models.
+keywords: [gazebo, sensors, lidar, depth-camera, imu, ros2, noise-models]
+---
+
+# Sensor Simulation (LiDAR, Depth Cameras, IMUs)
+
+Accurate sensor simulation is paramount for developing and testing robotic perception algorithms. Gazebo provides a rich set of sensor plugins that allow you to simulate various types of sensors, generating realistic data streams that can be published to ROS 2 topics.
+
+## Sensor Plugins in Gazebo
+
+Gazebo's sensor plugins are dynamic libraries that can be attached to a link within your robot model or directly to the world. They simulate the physical behavior of a sensor and often publish data in standard ROS 2 message formats.
+
+Common sensor plugins include:
+-   **`libgazebo_ros_laser.so`**: For LiDAR (Laser Imaging, Detection, and Ranging) sensors.
+-   **`libgazebo_ros_camera.so`** / **`libgazebo_ros_depth_camera.so`**: For RGB cameras and depth cameras.
+-   **`libgazebo_ros_imu.so`**: For Inertial Measurement Units.
+-   **`libgazebo_ros_force_torque.so`**: For force/torque sensors.
+
+## LiDAR Setup and Configuration
+
+LiDAR sensors measure distances to objects by emitting laser pulses and detecting their reflections. They are crucial for mapping, navigation, and obstacle avoidance.
+
+### Example: LiDAR Sensor Plugin Configuration
+
+```xml
+<link name="hokuyo_link">
+  <inertial>...</inertial>
+  <visual>...</visual>
+  <collision>...</collision>
+</link>
+
+<joint name="hokuyo_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="hokuyo_link"/>
+  <origin xyz="0 0 0.1" rpy="0 0 0"/>
+</joint>
+
+<gazebo reference="hokuyo_link">
+  <sensor name="laser_sensor" type="ray">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>30</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>720</samples>
+          <resolution>1</resolution>
+          <min_angle>-1.5708</min_angle>
+          <max_angle>1.5708</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>0.1</min>
+        <max>10.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_laser.so">
+      <topicName>/scan</topicName>
+      <frameName>hokuyo_link</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+```
+This configuration creates a 2D LiDAR sensor attached to `hokuyo_link`, publishing `sensor_msgs/LaserScan` messages on the `/scan` ROS 2 topic.
+
+## Depth Camera (RealSense) Simulation
+
+Depth cameras, like the Intel RealSense D435i, provide both RGB images and depth information, enabling 3D perception.
+
+### Example: Depth Camera Sensor Plugin Configuration
+
+```xml
+<link name="camera_link">
+  <inertial>...</inertial>
+  <visual>...</visual>
+  <collision>...</collision>
+</link>
+
+<joint name="camera_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="camera_link"/>
+  <origin xyz="0.1 0 0.2" rpy="0 0 0"/>
+</joint>
+
+<gazebo reference="camera_link">
+  <sensor name="depth_camera_sensor" type="depth_camera">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>30</update_rate>
+    <camera>
+      <horizontal_fov>1.089</horizontal_fov> <!-- ~60 deg -->
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>5</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_depth_camera.so">
+      <baseline>0.0</baseline>
+      <alwaysOn>true</alwaysOn>
+      <imageTopicName>color/image_raw</imageTopicName>
+      <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
+      <depthImageTopicName>depth/image_raw</depthImageTopicName>
+      <depthImageInfoTopicName>depth/camera_info</depthImageInfoTopicName>
+      <pointCloudTopicName>depth/color/points</pointCloudTopicName>
+      <pointCloudCutoff>0.4</pointCloudCutoff>
+      <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
+      <frameName>camera_link</frameName>
+      <hackBaseline>0.07</hackBaseline>
+      <distortionK1>0.0</distortionK1>
+      <distortionK2>0.0</distortionK2>
+      <distortionK3>0.0</distortionK3>
+      <distortionT1>0.0</distortionT1>
+      <distortionT2>0.0</distortionT2>
+      <Cx>320.5</Cx>
+      <Cy>240.5</Cy>
+      <focalLength>554.25</focalLength>
+      <hackBaseline>0.0</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+```
+This simulates a depth camera publishing RGB images, depth images, camera info, and point clouds to ROS 2 topics.
+
+## IMU Implementation
+
+An Inertial Measurement Unit (IMU) provides linear acceleration and angular velocity data, essential for robot localization, stabilization, and control.
+
+### Example: IMU Sensor Plugin Configuration
+
+```xml
+<link name="imu_link">
+  <inertial>...</inertial>
+  <visual>...</visual>
+  <collision>...</collision>
+</link>
+
+<joint name="imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<gazebo reference="imu_link">
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+      <ros>
+        <namespace>imu</namespace>
+        <argument>--ros-args -r imu:=imu_data</argument>
+      </ros>
+      <topicName>imu_data</topicName>
+      <frameName>imu_link</frameName>
+      <initialOrientationAsReference>false</initialOrientationAsReference>
+    </plugin>
+  </sensor>
+</gazebo>
+```
+This configures an IMU sensor publishing `sensor_msgs/Imu` messages on the `/imu_data` topic.
+
+## Publishing to ROS 2 Topics
+
+All of the above sensor plugins are configured to publish their simulated data directly to ROS 2 topics, typically in standard ROS 2 message formats. You can inspect these topics using:
+
+```bash
+ros2 topic list
+ros2 topic echo /scan
+ros2 topic echo /imu_data
+```
+
+## Noise Models
+
+Real-world sensors are imperfect and introduce noise into their measurements. Gazebo allows you to model various types of noise (Gaussian, Gaussian with bias, etc.) to make simulations more realistic. This is crucial for testing the robustness of your perception algorithms.
+
+### Example: Adding Gaussian Noise to a Camera Sensor
+
+```xml
+<sensor name="camera" type="camera">
+  <!-- ... camera configuration ... -->
+  <camera>
+    <!-- ... camera intrinsic parameters ... -->
+    <noise>
+      <type>gaussian</type>
+      <mean>0.0</mean>
+      <stddev>0.007</stddev>
+    </noise>
+  </camera>
+</sensor>
+```
+Noise models can be applied to various sensor types to simulate real-world sensor imperfections.
