@@ -4,17 +4,18 @@
   "description": "Digital AI vs Embodied AI differences, Physical AI definition and core concepts, Real-world applications, Why robots need to understand physics.",
   "source": "@site/docs/intro/what-is-physical-ai.mdx",
   "sourceDirName": "intro",
-  "slug": "/intro/what-is-physical-ai",
-  "permalink": "/docs/intro/what-is-physical-ai",
+  "slug": "/",
+  "permalink": "/",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/intro/what-is-physical-ai.mdx",
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/intro/what-is-physical-ai.mdx",
   "tags": [],
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {
     "id": "what-is-physical-ai",
     "title": "What is Physical AI?",
+    "slug": "/",
     "sidebar_label": "What is Physical AI?",
     "sidebar_position": 1,
     "description": "Digital AI vs Embodied AI differences, Physical AI definition and core concepts, Real-world applications, Why robots need to understand physics.",
@@ -29,10 +30,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Resources",
-    "permalink": "/docs/appendices/resources"
+    "permalink": "/appendices/resources"
   },
   "next": {
     "title": "Why Humanoid Robots?",
-    "permalink": "/docs/intro/why-humanoid-robots"
+    "permalink": "/intro/why-humanoid-robots"
   }
 }

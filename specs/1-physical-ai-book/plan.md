@@ -44,7 +44,7 @@ physical-ai-book/
 ├── sidebars.js
 ├── package.json
 ├── docs/
-│   ├── intro/
+│   ├── 0_introduction/
 │   │   ├── what-is-physical-ai.mdx
 │   │   ├── why-humanoid-robots.mdx
 │   │   ├── course-overview.mdx

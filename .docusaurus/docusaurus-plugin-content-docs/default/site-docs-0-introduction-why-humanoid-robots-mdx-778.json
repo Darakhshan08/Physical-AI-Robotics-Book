@@ -1,0 +1,38 @@
+{
+  "id": "introduction/why-humanoid-robots",
+  "title": "Why Humanoid Robots?",
+  "description": "Human-centered world design advantage, Training data abundance from human environments, Current landscape: Tesla Bot, Figure AI, Unitree, Future of humanoid robotics.",
+  "source": "@site/docs/0_introduction/why-humanoid-robots.mdx",
+  "sourceDirName": "0_introduction",
+  "slug": "/introduction/why-humanoid-robots",
+  "permalink": "/docs/introduction/why-humanoid-robots",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/0_introduction/why-humanoid-robots.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "why-humanoid-robots",
+    "title": "Why Humanoid Robots?",
+    "sidebar_label": "Why Humanoid Robots?",
+    "sidebar_position": 2,
+    "description": "Human-centered world design advantage, Training data abundance from human environments, Current landscape: Tesla Bot, Figure AI, Unitree, Future of humanoid robotics.",
+    "keywords": [
+      "humanoid-robots",
+      "tesla-bot",
+      "figure-ai",
+      "unitree",
+      "robotics-future"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "What is Physical AI?",
+    "permalink": "/docs/introduction/what-is-physical-ai"
+  },
+  "next": {
+    "title": "Course Overview",
+    "permalink": "/docs/introduction/course-overview"
+  }
+}

@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="200" rx="100" fill="url(#paint0_linear_1_3)"/>
+<path d="M60 70H140V80H60V70Z" fill="white"/>
+<path d="M60 90H140V100H60V90Z" fill="white"/>
+<path d="M60 110H140V120H60V110Z" fill="white"/>
+<path d="M60 130H100V140H60V130Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_1_3" x1="0" y1="0" x2="200" y2="200">
+<stop stop-color="#1E3A8A"/>
+<stop offset="1" stop-color="#3B82F6"/>
+</linearGradient>
+</defs>
+</svg>

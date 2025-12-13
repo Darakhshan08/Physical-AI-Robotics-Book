@@ -8,7 +8,7 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "module-1-ros2/architecture",
+          "mainDocId": "introduction/what-is-physical-ai",
           "docs": [
             {
               "id": "appendices/cloud-setup",
@@ -71,23 +71,23 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "intro/course-overview",
-              "path": "/docs/intro/course-overview",
+              "id": "introduction/course-overview",
+              "path": "/docs/introduction/course-overview",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "intro/environment-setup",
-              "path": "/docs/intro/environment-setup",
+              "id": "introduction/environment-setup",
+              "path": "/docs/introduction/environment-setup",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "intro/what-is-physical-ai",
-              "path": "/docs/intro/what-is-physical-ai",
+              "id": "introduction/what-is-physical-ai",
+              "path": "/docs/introduction/what-is-physical-ai",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "intro/why-humanoid-robots",
-              "path": "/docs/intro/why-humanoid-robots",
+              "id": "introduction/why-humanoid-robots",
+              "path": "/docs/introduction/why-humanoid-robots",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -250,8 +250,8 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/category/part-1-the-robotic-nervous-system---ros-2",
-                "label": "Part 1: The Robotic Nervous System - ROS 2"
+                "path": "/docs/introduction/what-is-physical-ai",
+                "label": "What is Physical AI?"
               }
             }
           }

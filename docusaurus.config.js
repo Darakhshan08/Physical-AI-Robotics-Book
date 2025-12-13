@@ -42,10 +42,11 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          routeBasePath: '/docs',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/',
+            'https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -71,13 +72,14 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar', // TODO: Ensure this matches sidebarId in sidebars.js
+            sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Book',
+            to: '/docs/introduction/what-is-physical-ai',
           },
           // {to: '/blog', label: 'Blog', position: 'left'}, // REMOVED BLOG
           {
-            href: 'https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook',
+            href: 'https://github.com/Darakhshan08/Physical-AI-Robotics-Book',
             label: 'GitHub',
             position: 'right',
           },
@@ -91,7 +93,7 @@ const config = {
             items: [
               {
                 label: 'Book',
-                to: '/docs/intro/what-is-physical-ai', // TODO: Update with actual first chapter
+                to: '/docs/introduction/what-is-physical-ai', // TODO: Update with actual first chapter
               },
             ],
           },
@@ -121,7 +123,7 @@ const config = {
               // },
               {
                 label: 'GitHub',
-                href: 'https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook',
+                href: 'https://github.com/Darakhshan08/Physical-AI-Robotics-Book',
               },
             ],
           },

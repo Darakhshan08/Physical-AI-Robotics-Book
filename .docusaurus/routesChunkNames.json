@@ -42,17 +42,17 @@
       "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/docs-4f4": {
+  "/docs-c8e": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docsaba-d7c"
     }
   },
-  "/docs-2c7": {
+  "/docs-325": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---docs-005-788"
   },
-  "/docs-518": {
+  "/docs-d1b": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/docs/appendices/cloud-setup-043": {
@@ -127,21 +127,21 @@
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "__props": "__props---docs-category-part-5-capstone-project-35-e-af7"
   },
-  "/docs/intro/course-overview-5be": {
+  "/docs/introduction/course-overview-ccd": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-intro-course-overviewcf-5-3ef"
+    "content": "content---docs-introduction-course-overviewa-01-04d"
   },
-  "/docs/intro/environment-setup-656": {
+  "/docs/introduction/environment-setup-171": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-intro-environment-setupc-51-f4e"
+    "content": "content---docs-introduction-environment-setup-1-d-3-c06"
   },
-  "/docs/intro/what-is-physical-ai-adc": {
+  "/docs/introduction/what-is-physical-ai-ac5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-intro-what-is-physical-ai-0-c-4-8db"
+    "content": "content---docs-introduction-what-is-physical-ai-928-71c"
   },
-  "/docs/intro/why-humanoid-robots-cf9": {
+  "/docs/introduction/why-humanoid-robots-7d5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-intro-why-humanoid-robots-541-ffc"
+    "content": "content---docs-introduction-why-humanoid-robots-778-76d"
   },
   "/docs/module-1-ros2/architecture-288": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -242,5 +242,12 @@
   "/docs/module-4-vla/voice-to-action-7aa": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-module-4-vla-voice-to-action-998-18f"
+  },
+  "/-2e1": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---a-74-9d6"
+    },
+    "config": "config---5-e-9-4f3"
   }
 }

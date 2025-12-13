@@ -31,7 +31,7 @@ description: "Task list for Physical AI & Humanoid Robotics Book implementation"
 - [X] T004 [P] Create and configure `sidebars.js` in `/sidebars.js` (Initial navigation structure)
 - [X] T005 [P] Create `static/img/diagrams/` directory for images
 - [X] T006 [P] Create `src/css/custom.css` for custom styling
-- [X] T007 Create `docs/intro/` directory for Part 0 chapters
+- [X] T007 Create `docs/0_introduction/` directory for Part 0 chapters
 - [X] T008 Create `docs/module-1-ros2/` directory for Part 1 chapters
 - [X] T009 Create `docs/module-2-simulation/` directory for Part 2 chapters
 - [X] T010 Create `docs/module-3-isaac/` directory for Part 3 chapters
@@ -63,12 +63,12 @@ description: "Task list for Physical AI & Humanoid Robotics Book implementation"
 
 ### Implementation for User Story 1
 
-- [X] T025 [US1] Write Chapter 0.1: What is Physical AI? in `docs/intro/what-is-physical-ai.mdx`
-- [X] T026 [US1] Write Chapter 0.2: Why Humanoid Robots? in `docs/intro/why-humanoid-robots.mdx`
-- [X] T027 [US1] Write Chapter 0.3: Course Overview & Hardware Requirements in `docs/intro/course-overview.mdx`
-- [X] T028 [US1] Write Chapter 0.4: Environment Setup in `docs/intro/environment-setup.mdx`
-- [X] T029 [P] [US1] Integrate bash installation scripts into Chapter 0.4 in `docs/intro/environment-setup.mdx`
-- [X] T030 [P] [US1] Add pricing tables to Chapter 0.3 in `docs/intro/course-overview.mdx`
+- [X] T025 [US1] Write Chapter 0.1: What is Physical AI? in `docs/0_introduction/what-is-physical-ai.mdx`
+- [X] T026 [US1] Write Chapter 0.2: Why Humanoid Robots? in `docs/0_introduction/why-humanoid-robots.mdx`
+- [X] T027 [US1] Write Chapter 0.3: Course Overview & Hardware Requirements in `docs/0_introduction/course-overview.mdx`
+- [X] T028 [US1] Write Chapter 0.4: Environment Setup in `docs/0_introduction/environment-setup.mdx`
+- [X] T029 [P] [US1] Integrate bash installation scripts into Chapter 0.4 in `docs/0_introduction/environment-setup.mdx`
+- [X] T030 [P] [US1] Add pricing tables to Chapter 0.3 in `docs/0_introduction/course-overview.mdx`
 - [X] T031 [US1] Review all Chapter 0 content for clarity and accuracy
 - [X] T032 [US1] Validate code examples in Chapter 0.4 execute correctly (Requires manual execution in target OS)
 - [X] T033 [US1] Verify internal links within Part 0 chapters

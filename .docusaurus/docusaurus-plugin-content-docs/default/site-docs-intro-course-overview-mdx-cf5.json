@@ -5,10 +5,10 @@
   "source": "@site/docs/intro/course-overview.mdx",
   "sourceDirName": "intro",
   "slug": "/intro/course-overview",
-  "permalink": "/docs/intro/course-overview",
+  "permalink": "/intro/course-overview",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/intro/course-overview.mdx",
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/intro/course-overview.mdx",
   "tags": [],
   "version": "current",
   "sidebarPosition": 3,
@@ -30,10 +30,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Why Humanoid Robots?",
-    "permalink": "/docs/intro/why-humanoid-robots"
+    "permalink": "/intro/why-humanoid-robots"
   },
   "next": {
     "title": "Environment Setup",
-    "permalink": "/docs/intro/environment-setup"
+    "permalink": "/intro/environment-setup"
   }
 }

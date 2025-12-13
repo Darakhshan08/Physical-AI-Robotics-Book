@@ -5,10 +5,10 @@
   "source": "@site/docs/intro/why-humanoid-robots.mdx",
   "sourceDirName": "intro",
   "slug": "/intro/why-humanoid-robots",
-  "permalink": "/docs/intro/why-humanoid-robots",
+  "permalink": "/intro/why-humanoid-robots",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/intro/why-humanoid-robots.mdx",
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/intro/why-humanoid-robots.mdx",
   "tags": [],
   "version": "current",
   "sidebarPosition": 2,
@@ -29,10 +29,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "What is Physical AI?",
-    "permalink": "/docs/intro/what-is-physical-ai"
+    "permalink": "/"
   },
   "next": {
     "title": "Course Overview",
-    "permalink": "/docs/intro/course-overview"
+    "permalink": "/intro/course-overview"
   }
 }

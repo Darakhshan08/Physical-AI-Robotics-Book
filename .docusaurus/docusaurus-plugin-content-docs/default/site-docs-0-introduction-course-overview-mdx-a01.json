@@ -1,0 +1,39 @@
+{
+  "id": "introduction/course-overview",
+  "title": "Course Overview & Hardware Requirements",
+  "description": "13-week course breakdown, Hardware Tier 1, 2, 3 requirements, Cloud alternative, pricing tables.",
+  "source": "@site/docs/0_introduction/course-overview.mdx",
+  "sourceDirName": "0_introduction",
+  "slug": "/introduction/course-overview",
+  "permalink": "/docs/introduction/course-overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/0_introduction/course-overview.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "course-overview",
+    "title": "Course Overview & Hardware Requirements",
+    "sidebar_label": "Course Overview",
+    "sidebar_position": 3,
+    "description": "13-week course breakdown, Hardware Tier 1, 2, 3 requirements, Cloud alternative, pricing tables.",
+    "keywords": [
+      "course-overview",
+      "hardware-requirements",
+      "jetson-orin-nano",
+      "realsense",
+      "unitree",
+      "aws"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Why Humanoid Robots?",
+    "permalink": "/docs/introduction/why-humanoid-robots"
+  },
+  "next": {
+    "title": "Environment Setup",
+    "permalink": "/docs/introduction/environment-setup"
+  }
+}

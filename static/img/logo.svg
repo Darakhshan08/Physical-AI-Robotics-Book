@@ -1,0 +1,12 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <title>Docusaurus Logo</title>
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(78, 201, 196);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(25, 126, 122);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#grad1)" d="M50,0L93.3,25v50L50,100L6.7,75v-50L50,0z"/>
+  <path fill="white" d="M50,15L80.4,32.5v35L50,85L19.6,67.5v-35L50,15z M50,22.5L28.4,35v30L50,77.5L71.6,65v-30L50,22.5z"/>
+  <polygon fill="white" points="50,42.5 39.2,48.7 39.2,61.3 50,67.5 60.8,61.3 60.8,48.7"/>
+</svg>

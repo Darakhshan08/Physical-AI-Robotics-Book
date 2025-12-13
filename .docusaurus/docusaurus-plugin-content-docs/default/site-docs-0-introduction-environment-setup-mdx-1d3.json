@@ -1,0 +1,40 @@
+{
+  "id": "introduction/environment-setup",
+  "title": "Environment Setup",
+  "description": "Ubuntu 22.04 LTS installation, ROS 2 Humble installation, Gazebo Harmonic setup, NVIDIA Isaac Sim (Omniverse) installation, Python venv and dependencies, VS Code configuration, Verification commands.",
+  "source": "@site/docs/0_introduction/environment-setup.mdx",
+  "sourceDirName": "0_introduction",
+  "slug": "/introduction/environment-setup",
+  "permalink": "/docs/introduction/environment-setup",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/0_introduction/environment-setup.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "environment-setup",
+    "title": "Environment Setup",
+    "sidebar_label": "Environment Setup",
+    "sidebar_position": 4,
+    "description": "Ubuntu 22.04 LTS installation, ROS 2 Humble installation, Gazebo Harmonic setup, NVIDIA Isaac Sim (Omniverse) installation, Python venv and dependencies, VS Code configuration, Verification commands.",
+    "keywords": [
+      "environment-setup",
+      "ubuntu",
+      "ros2",
+      "gazebo",
+      "isaac-sim",
+      "python",
+      "vscode"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Course Overview",
+    "permalink": "/docs/introduction/course-overview"
+  },
+  "next": {
+    "title": "Part 1: The Robotic Nervous System - ROS 2",
+    "permalink": "/docs/category/part-1-the-robotic-nervous-system---ros-2"
+  }
+}

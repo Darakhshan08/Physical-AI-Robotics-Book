@@ -39,15 +39,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '4f4'),
+    component: ComponentCreator('/docs', 'c8e'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '2c7'),
+        component: ComponentCreator('/docs', '325'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '518'),
+            component: ComponentCreator('/docs', 'd1b'),
             routes: [
               {
                 path: '/docs/appendices/cloud-setup',
@@ -158,26 +158,26 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/intro/course-overview',
-                component: ComponentCreator('/docs/intro/course-overview', '5be'),
+                path: '/docs/introduction/course-overview',
+                component: ComponentCreator('/docs/introduction/course-overview', 'ccd'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/intro/environment-setup',
-                component: ComponentCreator('/docs/intro/environment-setup', '656'),
+                path: '/docs/introduction/environment-setup',
+                component: ComponentCreator('/docs/introduction/environment-setup', '171'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/intro/what-is-physical-ai',
-                component: ComponentCreator('/docs/intro/what-is-physical-ai', 'adc'),
+                path: '/docs/introduction/what-is-physical-ai',
+                component: ComponentCreator('/docs/introduction/what-is-physical-ai', 'ac5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/intro/why-humanoid-robots',
-                component: ComponentCreator('/docs/intro/why-humanoid-robots', 'cf9'),
+                path: '/docs/introduction/why-humanoid-robots',
+                component: ComponentCreator('/docs/introduction/why-humanoid-robots', '7d5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -336,6 +336,11 @@ export default [
         ]
       }
     ]
+  },
+  {
+    path: '/',
+    component: ComponentCreator('/', '2e1'),
+    exact: true
   },
   {
     path: '*',

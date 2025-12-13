@@ -8,7 +8,7 @@
   "permalink": "/docs/appendices/resources",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/docs/appendices/resources.mdx",
+  "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/docs/appendices/resources.mdx",
   "tags": [],
   "version": "current",
   "sidebarPosition": 5,
@@ -31,9 +31,5 @@
   "previous": {
     "title": "Glossary",
     "permalink": "/docs/appendices/glossary"
-  },
-  "next": {
-    "title": "What is Physical AI?",
-    "permalink": "/docs/intro/what-is-physical-ai"
   }
 }

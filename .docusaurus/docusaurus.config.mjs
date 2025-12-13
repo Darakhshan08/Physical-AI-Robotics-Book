@@ -28,7 +28,8 @@ export default {
       {
         "docs": {
           "sidebarPath": "./sidebars.js",
-          "editUrl": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook/tree/main/"
+          "routeBasePath": "/docs",
+          "editUrl": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book/tree/main/"
         },
         "theme": {
           "customCss": "./src/css/custom.css"
@@ -55,10 +56,11 @@ export default {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Book"
+          "label": "Book",
+          "to": "/docs/introduction/what-is-physical-ai"
         },
         {
-          "href": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook",
+          "href": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book",
           "label": "GitHub",
           "position": "right"
         }
@@ -73,7 +75,7 @@ export default {
           "items": [
             {
               "label": "Book",
-              "to": "/docs/intro/what-is-physical-ai"
+              "to": "/docs/introduction/what-is-physical-ai"
             }
           ]
         },
@@ -99,7 +101,7 @@ export default {
           "items": [
             {
               "label": "GitHub",
-              "href": "https://github.com/Darakhshan08/Physical-AI-Humanoid-Robotics-Textbook"
+              "href": "https://github.com/Darakhshan08/Physical-AI-Robotics-Book"
             }
           ]
         }
