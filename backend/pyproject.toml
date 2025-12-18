@@ -1,0 +1,16 @@
+[project]
+name = "physical-ai-robotics-book-ingestion"
+version = "0.1.0"
+description = "Ingestion pipeline for the Physical AI Robotics Book."
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "cohere",
+    "qdrant-client",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
