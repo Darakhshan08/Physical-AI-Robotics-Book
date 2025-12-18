@@ -60,6 +60,7 @@ def get_all_urls(sitemap_url: str, root_url: str, depth_limit: int = 2):
     Secondary source: link following from the root URL.
     """
     urls = set()
+    root_netloc = urlparse(root_url).netloc # Define root_netloc here
 
     # 1. Sitemap parsing
     logging.info(f"Attempting to fetch sitemap from {sitemap_url}")
@@ -68,8 +69,12 @@ def get_all_urls(sitemap_url: str, root_url: str, depth_limit: int = 2):
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "xml")
         for loc in soup.find_all("loc"):
-            urls.add(loc.text)
-        logging.info(f"Found {len(urls)} URLs in sitemap.")
+            sitemap_url_parsed = urlparse(loc.text)
+            if sitemap_url_parsed.netloc == root_netloc:
+                urls.add(loc.text)
+            else:
+                logging.warning(f"Sitemap contained an external URL: {loc.text}. Skipping.")
+        logging.info(f"Found {len(urls)} URLs in sitemap within the root domain.")
     except requests.exceptions.RequestException as e:
         logging.warning(f"Could not fetch sitemap from {sitemap_url}: {e}")
 
@@ -80,16 +85,18 @@ def get_all_urls(sitemap_url: str, root_url: str, depth_limit: int = 2):
     while queue:
         current_url, depth = queue.pop(0)
 
+        # Do not visit if already visited or depth limit exceeded
         if current_url in visited or depth > depth_limit:
             continue
-
-        visited.add(current_url)
-        urls.add(current_url)
-
+        
         try:
             logging.info(f"Crawling {current_url} (depth: {depth})")
             response = requests.get(current_url, timeout=10)
-            response.raise_for_status()
+            response.raise_for_status() # Raises HTTPError for bad responses (4xx or 5xx)
+            
+            urls.add(current_url) # Only add to final list if successful
+            visited.add(current_url) # Mark as visited only if successfully fetched
+
             soup = BeautifulSoup(response.content, "html.parser")
 
             for link in soup.find_all("a", href=True):
@@ -98,9 +105,10 @@ def get_all_urls(sitemap_url: str, root_url: str, depth_limit: int = 2):
                 parsed_url = urlparse(absolute_url)
                 
                 # Stay on the same domain and ignore non-content links
-                if parsed_url.netloc == urlparse(root_url).netloc:
+                if parsed_url.netloc == root_netloc: # Use root_netloc here
                     if not any(absolute_url.endswith(ext) for ext in ['.js', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg']):
-                        queue.append((absolute_url, depth + 1))
+                        if absolute_url not in visited: # Only add to queue if not already visited
+                            queue.append((absolute_url, depth + 1))
         except requests.exceptions.RequestException as e:
             logging.warning(f"Could not fetch or read {current_url}: {e}")
 

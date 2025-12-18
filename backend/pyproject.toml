@@ -8,6 +8,7 @@ dependencies = [
     "cohere",
     "qdrant-client",
     "python-dotenv",
+    "lxml",
 ]
 
 [project.optional-dependencies]

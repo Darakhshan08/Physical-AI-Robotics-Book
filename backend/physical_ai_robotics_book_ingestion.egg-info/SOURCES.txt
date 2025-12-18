@@ -1,0 +1,8 @@
+README.md
+main.py
+pyproject.toml
+physical_ai_robotics_book_ingestion.egg-info/PKG-INFO
+physical_ai_robotics_book_ingestion.egg-info/SOURCES.txt
+physical_ai_robotics_book_ingestion.egg-info/dependency_links.txt
+physical_ai_robotics_book_ingestion.egg-info/requires.txt
+physical_ai_robotics_book_ingestion.egg-info/top_level.txt

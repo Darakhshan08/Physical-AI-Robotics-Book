@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: physical-ai-robotics-book-ingestion
+Version: 0.1.0
+Summary: Ingestion pipeline for the Physical AI Robotics Book.
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: cohere
+Requires-Dist: qdrant-client
+Requires-Dist: python-dotenv
+Requires-Dist: lxml
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
